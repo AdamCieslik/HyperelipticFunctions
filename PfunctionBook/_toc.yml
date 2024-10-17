@@ -1,0 +1,11 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: 0. Intro
+chapters:
+- file: 1. Preliminaries
+- file: 2. Genus=2
+
+options:
+  numbered: true  # Włącza numerowanie rozdziałów i sekcji
