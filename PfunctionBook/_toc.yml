@@ -6,7 +6,7 @@ root: 0. Intro
 chapters:
 - file: 1. Preliminaries
 - file: 2. Genus=2
-- file: markdown-notebooks
+- file: 3. WithRiemmPack
 
 options:
   numbered: true  # Włącza numerowanie rozdziałów i sekcji
