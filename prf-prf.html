@@ -6,9 +6,8 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>1. Preliminaries &#8212; My sample book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proof Index &#8212; My sample book</title>
   
   
   
@@ -60,15 +59,18 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '1. Preliminaries';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'prf-prf';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. Genus 2 case" href="2.%20Genus%3D2.html" />
-    <link rel="prev" title="Introduction" href="0.%20Intro.html" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+
+    <script>
+      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
+    </script>
+
+
   </head>
   
   
@@ -129,6 +131,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -184,9 +188,10 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Preliminaries</a></li>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1.%20Preliminaries.html">1. Preliminaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.%20Genus%3D2.html">2. Genus 2 case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.%20WithRiemmPack.html">3. Approach with RiemannTheta package</a></li>
 </ul>
 
     </div>
@@ -258,7 +263,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1. Preliminaries.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fprf-prf.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -270,54 +275,6 @@
   </span>
 <span class="btn__text-container">Open issue</span>
 </a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="_sources/1. Preliminaries.md" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.md</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="btn__text-container">.pdf</span>
-</button>
 </li>
       
   </ul>
@@ -359,9 +316,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -372,20 +327,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Preliminaries</h1>
+    <h1></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legend">1.1. Legend</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperelliptic-curve">1.2. Hyperelliptic curve</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -395,75 +341,132 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="preliminaries">
-<h1><span class="section-number">1. </span>Preliminaries<a class="headerlink" href="#preliminaries" title="Link to this heading">#</a></h1>
-<p>Many works on hyperelliptic functions and Riemann surfaces use similar notation, leading to potential collisions. To avoid this, I provide a legend of notations.</p>
-<section id="legend">
-<h2><span class="section-number">1.1. </span>Legend<a class="headerlink" href="#legend" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathscr{C}\)</span> - Curve</p></li>
-<li><p><span class="math notranslate nohighlight">\(X\)</span> - Riemann surface</p></li>
-<li><p><span class="math notranslate nohighlight">\(e_i\)</span> - branch points</p></li>
-<li><p><span class="math notranslate nohighlight">\(w\)</span> - An Abelian differential on the Riemann surface <span class="math notranslate nohighlight">\(X\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(W\)</span> - general Abelian integral</p></li>
-<li><p><span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> - A- and B-periods of the differential <span class="math notranslate nohighlight">\(w=dW\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(du\)</span> - First kind differential</p></li>
-<li><p><span class="math notranslate nohighlight">\(dr\)</span> - Second kind differential</p></li>
-<li><p><span class="math notranslate nohighlight">\(dl\)</span> - Third kind differential</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathfrak{a}_i, \mathfrak{b}_i\)</span> - Canonical homology cycles</p></li>
-<li><p><span class="math notranslate nohighlight">\(\omega\)</span> -  First kind integrals</p></li>
-<li><p><span class="math notranslate nohighlight">\(\eta\)</span> - Second kind integrals</p></li>
-<li><p><span class="math notranslate nohighlight">\(\lambda\)</span> - Third kind integrals</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathcal{A}\)</span> - Abel map</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathfrak{m}(\mathbf{u})\)</span> - A meromorphic function of <span class="math notranslate nohighlight">\(\mathbf{u}\in\mathbb{C}^g\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\Omega\)</span> - Periodic matrices</p></li>
-<li><p><span class="math notranslate nohighlight">\(\Lambda\)</span> - Lattice</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathrm{Jac}(\mathscr{C})\)</span> - Jacobian variety of the curve <span class="math notranslate nohighlight">\(\mathscr{C}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(D\)</span> - Divisor  on the Riemann surface <span class="math notranslate nohighlight">\(X\)</span></p></li>
-</ul>
-<p>Now we present the basic definitions</p>
-</section>
-<section id="hyperelliptic-curve">
-<h2><span class="section-number">1.2. </span>Hyperelliptic curve<a class="headerlink" href="#hyperelliptic-curve" title="Link to this heading">#</a></h2>
-<div class="proof definition admonition" id="hyperelliptic_curve">
-<p class="admonition-title"><span class="caption-number">Definition 1.1 </span></p>
-<section class="definition-content" id="proof-content">
-<p>The hyperelliptic curve is defined by the equation</p>
-<div class="math notranslate nohighlight">
-\[\mathscr{C} = \{ (x,y)\in \mathbb{C}^2 \mid f(x,y)= \},\]</div>
-<p>where</p>
-<div class="math notranslate nohighlight">
-\[f(x,y) = -y^2 + x^{2g+1} + \sum_{i=0}^{2g}\lambda_{2i+2}x^{2g-i}, \quad \lambda_{k\leq0}=0,\; \lambda_0 =1, \; \lambda_k \in \mathbb{R}.\]</div>
-</section>
-</div><div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul class="simple">
-<li><p>We use convention from <span id="id1">[<a class="reference internal" href="2.%20Genus%3D2.html#id15" title="Julia Bernatska. Computation of \$\wp\$-functions on plane algebraic curves. July 2024. URL: https://arxiv.org/abs/2407.05632v3 (visited on 2024-10-17).">1</a>]</span>.</p></li>
-<li><p>We are working with physical equations where <span class="math notranslate nohighlight">\(\lambda_k \in \mathbb{R}\)</span> instead of <span class="math notranslate nohighlight">\(\lambda_k \in \mathbb{C}\)</span> which can be found in various texts.</p></li>
-</ul>
-</div>
-</section>
-</section>
 
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            name: "python3",
-            path: "./."
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
+   <h1>Proof Index</h1>
+
+   <div class="modindex-jumpbox">
+   <a href="#cap-divisor_df"><strong>divisor_df</strong></a> | 
+   <a href="#cap-hyperelliptic_curve"><strong>hyperelliptic_curve</strong></a> | 
+   <a href="#cap-observation-0"><strong>observation-0</strong></a> | 
+   <a href="#cap-observation-1"><strong>observation-1</strong></a> | 
+   <a href="#cap-observation-2"><strong>observation-2</strong></a> | 
+   <a href="#cap-observation-6"><strong>observation-6</strong></a> | 
+   <a href="#cap-observation-8"><strong>observation-8</strong></a> | 
+   <a href="#cap-riemann_sur"><strong>riemann_sur</strong></a> | 
+   <a href="#cap-sigma_app1_df"><strong>sigma_app1_df</strong></a> | 
+   <a href="#cap-sigma_app2_df"><strong>sigma_app2_df</strong></a> | 
+   <a href="#cap-sigma_df"><strong>sigma_df</strong></a> | 
+   <a href="#cap-theta_df"><strong>theta_df</strong></a> | 
+   <a href="#cap-wp_df"><strong>wp_df</strong></a>
+   </div>
+
+   <table class="indextable modindextable">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-divisor_df"><td></td><td>
+       <strong>divisor_df</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="2.%20Genus%3D2.html#divisor_df"><code class="xref">divisor_df</code></a> <em>(2. Genus=2)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-hyperelliptic_curve"><td></td><td>
+       <strong>hyperelliptic_curve</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="1.%20Preliminaries.html#hyperelliptic_curve"><code class="xref">hyperelliptic_curve</code></a> <em>(1. Preliminaries)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-observation-0"><td></td><td>
+       <strong>observation-0</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="3.%20WithRiemmPack.html#observation-0"><code class="xref">observation-0</code></a> <em>(3. WithRiemmPack)</em></td><td>
+       <em>observation</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-observation-1"><td></td><td>
+       <strong>observation-1</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="3.%20WithRiemmPack.html#observation-1"><code class="xref">observation-1</code></a> <em>(3. WithRiemmPack)</em></td><td>
+       <em>observation</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-observation-2"><td></td><td>
+       <strong>observation-2</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="3.%20WithRiemmPack.html#observation-2"><code class="xref">observation-2</code></a> <em>(3. WithRiemmPack)</em></td><td>
+       <em>observation</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-observation-6"><td></td><td>
+       <strong>observation-6</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="2.%20Genus%3D2.html#observation-6"><code class="xref">observation-6</code></a> <em>(2. Genus=2)</em></td><td>
+       <em>observation</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-observation-8"><td></td><td>
+       <strong>observation-8</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="2.%20Genus%3D2.html#observation-8"><code class="xref">observation-8</code></a> <em>(2. Genus=2)</em></td><td>
+       <em>observation</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-riemann_sur"><td></td><td>
+       <strong>riemann_sur</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="2.%20Genus%3D2.html#riemann_sur"><code class="xref">riemann_sur</code></a> <em>(2. Genus=2)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-sigma_app1_df"><td></td><td>
+       <strong>sigma_app1_df</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="2.%20Genus%3D2.html#sigma_app1_df"><code class="xref">sigma_app1_df</code></a> <em>(2. Genus=2)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-sigma_app2_df"><td></td><td>
+       <strong>sigma_app2_df</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="2.%20Genus%3D2.html#sigma_app2_df"><code class="xref">sigma_app2_df</code></a> <em>(2. Genus=2)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-sigma_df"><td></td><td>
+       <strong>sigma_df</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="2.%20Genus%3D2.html#sigma_df"><code class="xref">sigma_df</code></a> <em>(2. Genus=2)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-theta_df"><td></td><td>
+       <strong>theta_df</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="2.%20Genus%3D2.html#theta_df"><code class="xref">theta_df</code></a> <em>(2. Genus=2)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-wp_df"><td></td><td>
+       <strong>wp_df</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="2.%20Genus%3D2.html#wp_df"><code class="xref">wp_df</code></a> <em>(2. Genus=2)</em></td><td>
+       <em>definition</em></td></tr>
+   </table>
+
 
                 </article>
               
@@ -475,46 +478,12 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="0.%20Intro.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="2.%20Genus%3D2.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Genus 2 case</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legend">1.1. Legend</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hyperelliptic-curve">1.2. Hyperelliptic curve</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
