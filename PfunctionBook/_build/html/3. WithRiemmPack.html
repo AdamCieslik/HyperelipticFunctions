@@ -390,23 +390,35 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legendre-relation">3.4. Legendre relation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theta-function">3.5. Theta function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-branch-points">3.6. Characteristics of branch points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-branch-points">3.5. Characteristics of branch points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theta-function">3.6. Theta function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">3.6.1. Tests</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sigma-functions">3.7. <span class="math notranslate nohighlight">\(\sigma\)</span>-Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approximate-definitions">3.7.1. Approximate definitions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">3.7.2. Tests</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives">3.7.3. Derivatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.7.2. Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives">3.7.3. Derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.7.3.1. Tests</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wp-functions">3.8. <span class="math notranslate nohighlight">\(\wp\)</span>-Functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.8.1. Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.8.1. Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-relations">3.8.2. Basic relations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#i">3.8.2.1. I.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ii">3.8.2.2. II.</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-inversion-problem-on-branch-points">3.9. Jacobi inversion problem on branch points</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#divisor">3.9.1. Divisor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.9.2. Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.9.2. Tests</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">3.10. Bibliography</a></li>
 </ul>
             </nav>
         </div>
@@ -846,45 +858,8 @@ J Matrix:
 </div>
 </div>
 </section>
-<section id="theta-function">
-<h2><span class="section-number">3.5. </span>Theta function<a class="headerlink" href="#theta-function" title="Link to this heading">#</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Evaluate Riemann theta function with characteristic and derivatives.</p>
-<p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code>: - z – vector; optional (default 0). Point to evaluate theta function at. - <code class="docutils literal notranslate"><span class="pre">char</span></code> – list or vector; optional (default 0). Characteristic.</p>
-<p>The characteristic can either be specified as a list <code class="docutils literal notranslate"><span class="pre">[[eps_1,</span> <span class="pre">...,eps_g],[delta_1,</span> <span class="pre">...,</span> <span class="pre">delta_g],N]</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the level of the characteristic and the <code class="docutils literal notranslate"><span class="pre">eps_i,</span> <span class="pre">delta_j</span></code> are integers describing the characteristic, or as a <code class="docutils literal notranslate"><span class="pre">2*g`-dimensional</span> <span class="pre">vector</span> <span class="pre">over</span> <span class="pre">``ZZ/</span> <span class="pre">N*ZZ</span></code>. In the latter case, the level N is read off from the base ring and the vector is taken to be <code class="docutils literal notranslate"><span class="pre">[eps_1,</span> <span class="pre">...,</span> <span class="pre">eps_g,</span> <span class="pre">delta_1,</span> <span class="pre">...,</span> <span class="pre">delta_g]</span></code>.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">derivs</span></code> – list; optional (default []). Derivatives. It can be a list
-of integers <code class="docutils literal notranslate"><span class="pre">[i_1,...,i_n]</span></code>, in which case it is taken to mean the derivative of order <code class="docutils literal notranslate"><span class="pre">n</span></code>, obtained by taking the partial derivative with respect to z<code class="docutils literal notranslate"><span class="pre">[i_1],</span> <span class="pre">...,</span> <span class="pre">z[i_n]</span></code>. Alternatively, it can be a list of lists of integers, in which case the values of the derivatives indicated by the members of the list are returned as a tuple, in order.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tol</span></code> – real number; optional. Tolerance allowed in approximation. The default is
-the tolerance indicated by the precision of the base ring. Note that the tolerance controlled is the tolerance in the approximation of the periodic part of the Riemann Theta function (see [DHBvHS2004]). Furthermore, floating point rounding in iterated summations may perturb the lower bits.</p></li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code>: A complex number of a tuple of them; the value(s) of the indicated Riemann Theta function(s).</p>
-<p><code class="docutils literal notranslate"><span class="pre">EXAMPLE</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="kn">from</span> <span class="nn">riemann_theta.riemann_theta</span> <span class="kn">import</span> <span class="n">RiemannTheta</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">RT</span><span class="o">=</span><span class="n">RiemannTheta</span><span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="n">CC</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,[</span><span class="mi">2</span><span class="o">*</span><span class="n">I</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">I</span><span class="p">]))</span>
-<span class="n">sage</span><span class="p">:</span> <span class="n">RT</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">char</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="mi">2</span><span class="p">],</span><span class="n">derivs</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="c1"># abs_tol = 1e-15</span>
-<span class="mf">2.88494706892332e-16</span>
-</pre></div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tautest</span><span class="o">=</span><span class="n">matrix</span><span class="p">(</span><span class="n">CC</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,[</span><span class="n">I</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">I</span><span class="p">])</span>
-<span class="n">RT</span><span class="o">=</span><span class="n">RiemannTheta</span><span class="p">(</span><span class="n">tautest</span><span class="p">)</span>
-<span class="n">RT</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">char</span><span class="o">=</span><span class="p">[[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.18034044830161 + 5.90898167305014e-22*I
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 <section id="characteristics-of-branch-points">
-<h2><span class="section-number">3.6. </span>Characteristics of branch points<a class="headerlink" href="#characteristics-of-branch-points" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.5. </span>Characteristics of branch points<a class="headerlink" href="#characteristics-of-branch-points" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We define the genus variable</span>
@@ -992,8 +967,144 @@ the tolerance indicated by the precision of the base ring. Note that the toleran
 </div>
 </div>
 </section>
+<section id="theta-function">
+<h2><span class="section-number">3.6. </span>Theta function<a class="headerlink" href="#theta-function" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="2.%20Genus%3D2.html#theta_df">Definition 2.2</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Evaluate Riemann theta function with characteristic and derivatives.</p>
+<p><code class="docutils literal notranslate"><span class="pre">INPUT</span></code>: - z – vector; optional (default 0). Point to evaluate theta function at. - <code class="docutils literal notranslate"><span class="pre">char</span></code> – list or vector; optional (default 0). Characteristic.</p>
+<p>The characteristic can either be specified as a list <code class="docutils literal notranslate"><span class="pre">[[eps_1,</span> <span class="pre">...,eps_g],[delta_1,</span> <span class="pre">...,</span> <span class="pre">delta_g],N]</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the level of the characteristic and the <code class="docutils literal notranslate"><span class="pre">eps_i,</span> <span class="pre">delta_j</span></code> are integers describing the characteristic, or as a <code class="docutils literal notranslate"><span class="pre">2*g`-dimensional</span> <span class="pre">vector</span> <span class="pre">over</span> <span class="pre">``ZZ/</span> <span class="pre">N*ZZ</span></code>. In the latter case, the level N is read off from the base ring and the vector is taken to be <code class="docutils literal notranslate"><span class="pre">[eps_1,</span> <span class="pre">...,</span> <span class="pre">eps_g,</span> <span class="pre">delta_1,</span> <span class="pre">...,</span> <span class="pre">delta_g]</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">derivs</span></code> – list; optional (default []). Derivatives. It can be a list
+of integers <code class="docutils literal notranslate"><span class="pre">[i_1,...,i_n]</span></code>, in which case it is taken to mean the derivative of order <code class="docutils literal notranslate"><span class="pre">n</span></code>, obtained by taking the partial derivative with respect to z<code class="docutils literal notranslate"><span class="pre">[i_1],</span> <span class="pre">...,</span> <span class="pre">z[i_n]</span></code>. Alternatively, it can be a list of lists of integers, in which case the values of the derivatives indicated by the members of the list are returned as a tuple, in order.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tol</span></code> – real number; optional. Tolerance allowed in approximation. The default is
+the tolerance indicated by the precision of the base ring. Note that the tolerance controlled is the tolerance in the approximation of the periodic part of the Riemann Theta function (see [DHBvHS2004]). Furthermore, floating point rounding in iterated summations may perturb the lower bits.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code>: A complex number of a tuple of them; the value(s) of the indicated Riemann Theta function(s).</p>
+<p><code class="docutils literal notranslate"><span class="pre">EXAMPLE</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sage</span><span class="p">:</span> <span class="kn">from</span> <span class="nn">riemann_theta.riemann_theta</span> <span class="kn">import</span> <span class="n">RiemannTheta</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">RT</span><span class="o">=</span><span class="n">RiemannTheta</span><span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="n">CC</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,[</span><span class="mi">2</span><span class="o">*</span><span class="n">I</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">I</span><span class="p">]))</span>
+<span class="n">sage</span><span class="p">:</span> <span class="n">RT</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">char</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="mi">2</span><span class="p">],</span><span class="n">derivs</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="c1"># abs_tol = 1e-15</span>
+<span class="mf">2.88494706892332e-16</span>
+</pre></div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tautest</span><span class="o">=</span><span class="n">matrix</span><span class="p">(</span><span class="n">CC</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,[</span><span class="n">I</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">I</span><span class="p">])</span>
+<span class="n">RT</span><span class="o">=</span><span class="n">RiemannTheta</span><span class="p">(</span><span class="n">tautest</span><span class="p">)</span>
+<span class="n">RT</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">char</span><span class="o">=</span><span class="p">[[</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.18034044830161 + 5.90898167305014e-22*I
+</pre></div>
+</div>
+</div>
+</div>
+<section id="tests">
+<h3><span class="section-number">3.6.1. </span>Tests<a class="headerlink" href="#tests" title="Link to this heading">#</a></h3>
+<p>Test of the formula (<span id="id1">[<a class="reference internal" href="#id13" title="Julia Bernatska. Computation of \$\wp\$-functions on plane algebraic curves. July 2024. URL: https://arxiv.org/abs/2407.05632v3 (visited on 2024-10-17).">1</a>]</span>, p.4, eq. 7)</p>
+<div class="math notranslate nohighlight">
+\[\theta[\varepsilon](\mathbf{v};\tau) = 
+            e^{i\pi\left(\frac{1}{2} \mathbf{\varepsilon}'^T\right) \tau \left(\frac{1}{2} \mathbf{\varepsilon}'\right) + 2i\pi \left( \mathbf{v} + \frac{1}{2} \mathbf{\varepsilon}\right)^T \left(\frac{1}{2} \mathbf{\varepsilon}'\right)} \theta\left(\mathbf{v} + \frac{1}{2}\mathbf{\varepsilon} + \tau\left(\frac{1}{2}\mathbf{\varepsilon}'\right);\tau \right).   \]</div>
+<p>where a characteristic is a a <span class="math notranslate nohighlight">\(2\times g\)</span> matrix <span class="math notranslate nohighlight">\([\varepsilon] =(\mathbf{\varepsilon}',\mathbf{\varepsilon})^T \)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the genus</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># For genus 2</span>
+
+<span class="c1"># Define the period matrix tau</span>
+<span class="c1">### tau = Matrix(CC, [[I, 0.5], [0.5, I]])</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="n">omega</span><span class="o">.</span><span class="n">inverse</span><span class="p">()</span> <span class="o">*</span> <span class="n">omegaP</span>
+
+<span class="c1"># Define the vector v</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">CC</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+
+<span class="c1"># Define the characteristic</span>
+<span class="n">eps_prime</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">eps</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Level of the characteristic</span>
+<span class="n">char</span> <span class="o">=</span> <span class="p">[</span><span class="n">eps_prime</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">N</span><span class="p">]</span>
+
+<span class="c1"># Create an instance of RiemannTheta with the period matrix tau</span>
+<span class="n">RT</span> <span class="o">=</span> <span class="n">RiemannTheta</span><span class="p">(</span><span class="n">tau</span><span class="p">)</span>
+
+<span class="c1"># Compute theta with characteristic at v</span>
+<span class="n">theta_char</span> <span class="o">=</span> <span class="n">RT</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">v</span><span class="p">,</span> <span class="n">char</span><span class="o">=</span><span class="n">char</span><span class="p">)</span>
+
+<span class="c1"># Compute half of the characteristic vectors</span>
+<span class="n">eps_vec</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">CC</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span>
+<span class="n">eps_prime_vec</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">CC</span><span class="p">,</span> <span class="n">eps_prime</span><span class="p">)</span>
+<span class="n">eps_half</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">eps_vec</span>
+<span class="n">eps_prime_half</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">eps_prime_vec</span>
+
+<span class="c1"># Compute the shifted vector v_shifted</span>
+<span class="n">v_shifted</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">eps_half</span> <span class="o">+</span> <span class="n">tau</span> <span class="o">*</span> <span class="n">eps_prime_half</span>
+
+<span class="c1"># Compute the terms for the exponential factor</span>
+<span class="n">term1</span> <span class="o">=</span> <span class="p">(</span><span class="n">eps_prime_half</span><span class="p">)</span> <span class="o">*</span> <span class="n">tau</span> <span class="o">*</span> <span class="p">(</span><span class="n">eps_prime_half</span><span class="p">)</span>
+<span class="n">term2</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="n">eps_half</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">eps_prime_half</span><span class="p">)</span>
+
+<span class="c1"># Compute the exponential factor</span>
+<span class="n">exp_factor</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">I</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">term1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">I</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">term2</span><span class="p">)</span>
+
+<span class="c1"># Compute theta at the shifted point without characteristic</span>
+<span class="n">theta_standard</span> <span class="o">=</span> <span class="n">RT</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">v_shifted</span><span class="p">)</span>
+
+<span class="c1"># Compute the RHS of the relation</span>
+<span class="n">RHS</span> <span class="o">=</span> <span class="n">exp_factor</span> <span class="o">*</span> <span class="n">theta_standard</span>
+
+<span class="c1"># Compute the difference</span>
+<span class="n">difference</span> <span class="o">=</span> <span class="n">theta_char</span> <span class="o">-</span> <span class="n">RHS</span>
+
+<span class="c1"># Print the results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Theta with characteristic:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">theta_char</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exponential factor:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exp_factor</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Theta at shifted point:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">theta_standard</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RHS:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">RHS</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Difference:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">difference</span><span class="p">)</span>
+
+<span class="c1"># Check if the difference is within an acceptable tolerance</span>
+<span class="n">tolerance</span> <span class="o">=</span> <span class="mf">1e-12</span>  <span class="c1"># Adjust based on the precision</span>
+<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">difference</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The relation is verified within the given tolerance.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The relation is not satisfied within the given tolerance.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Theta with characteristic:
+ 1.0600858517074843513006428717 - 0.25010237312126239117384680391*I
+
+Exponential factor:
+ 0.5734712442681018 + 0.050148801540618036*I
+
+Theta at shifted point:
+ 1.7966652347912196331751812601 - 0.59323459513636576276197467044*I
+
+RHS:
+ 1.0600858517074845 - 0.25010237312126254*I
+
+Difference:
+ -2.220446049250313e-16 + 1.6653345369377348e-16*I
+The relation is verified within the given tolerance.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 <section id="sigma-functions">
 <h2><span class="section-number">3.7. </span><span class="math notranslate nohighlight">\(\sigma\)</span>-Functions<a class="headerlink" href="#sigma-functions" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="2.%20Genus%3D2.html#sigma_df">Definition 2.3</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We define variables</span>
@@ -1012,10 +1123,23 @@ the tolerance indicated by the precision of the base ring. Note that the toleran
 <span class="n">det_omega</span> <span class="o">=</span> <span class="n">omega</span><span class="o">.</span><span class="n">determinant</span><span class="p">()</span>
 <span class="n">g</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="c1">#Branch points</span>
-<span class="n">BP</span><span class="o">=</span><span class="n">find_branch_points</span><span class="p">(</span><span class="n">l0</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l4</span><span class="p">,</span> <span class="n">l6</span><span class="p">,</span> <span class="n">l8</span><span class="p">,</span> <span class="n">l10</span><span class="p">)</span>
-<span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="p">,</span> <span class="n">e4</span><span class="p">,</span> <span class="n">e5</span> <span class="o">=</span> <span class="n">BP</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">BP</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">BP</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">BP</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">BP</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">prod</span><span class="o">=</span><span class="p">(</span><span class="n">e1</span><span class="o">-</span><span class="n">e2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">e2</span><span class="o">-</span><span class="n">e3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">e3</span><span class="o">-</span><span class="n">e4</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">e4</span><span class="o">-</span><span class="n">e5</span><span class="p">)</span>
+<span class="n">BP</span> <span class="o">=</span> <span class="n">find_branch_points</span><span class="p">(</span><span class="n">l0</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l4</span><span class="p">,</span> <span class="n">l6</span><span class="p">,</span> <span class="n">l8</span><span class="p">,</span> <span class="n">l10</span><span class="p">)</span>
+<span class="c1"># Calculating the product of branch point differences</span>
+<span class="n">prod</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">BP</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">BP</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">BP</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">infinity</span> <span class="ow">and</span> <span class="n">BP</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">infinity</span><span class="p">:</span>
+            <span class="n">prod</span> <span class="o">*=</span> <span class="p">(</span><span class="n">BP</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">BP</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">pi</span><span class="o">**</span><span class="n">g</span> <span class="o">/</span> <span class="n">det_omega</span><span class="p">)</span> <span class="o">*</span> <span class="n">prod</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Constant C another definition</span>
+<span class="n">det2_omega</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">omega</span><span class="o">.</span><span class="n">determinant</span><span class="p">())</span>
+
+<span class="n">C2</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">pi</span><span class="o">**</span><span class="n">g</span> <span class="o">/</span> <span class="n">det2_omega</span><span class="p">)</span> <span class="o">*</span> <span class="n">prod</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Taking into account the factor (2*pi*i)^g</span>
+<span class="n">C3</span> <span class="o">=</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">I</span><span class="p">)</span><span class="o">**</span><span class="n">g</span> <span class="o">/</span> <span class="n">det2_omega</span><span class="p">)</span> <span class="o">*</span> <span class="n">prod</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+
 
 <span class="k">def</span> <span class="nf">sigma</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">C</span><span class="o">*</span><span class="n">Tsigma</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">)</span>
@@ -1025,6 +1149,7 @@ the tolerance indicated by the precision of the base ring. Note that the toleran
 </div>
 <section id="approximate-definitions">
 <h3><span class="section-number">3.7.1. </span>Approximate definitions<a class="headerlink" href="#approximate-definitions" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="2.%20Genus%3D2.html#sigma_app1_df">Definition 2.4</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sigmaApp1</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">):</span>
@@ -1042,6 +1167,7 @@ the tolerance indicated by the precision of the base ring. Note that the toleran
 </div>
 </div>
 </div>
+<p><a class="reference internal" href="2.%20Genus%3D2.html#sigma_app2_df">Definition 2.5</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sigmaApp2</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">):</span>
@@ -1067,33 +1193,35 @@ the tolerance indicated by the precision of the base ring. Note that the toleran
 </div>
 </div>
 </div>
+<p><a class="reference internal" href="2.%20Genus%3D2.html#sigma_app3_df">Definition 2.6</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sigmaApp3</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">U1</span> 
+              <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">U3</span><span class="o">**</span><span class="mi">3</span> 
+              <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">24</span><span class="p">)</span> <span class="o">*</span> <span class="n">l6</span> <span class="o">*</span> <span class="n">U1</span><span class="o">**</span><span class="mi">3</span>
+             <span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference internal" href="2.%20Genus%3D2.html#sigma_app4_df">Definition 2.7</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sigmaApp4</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">U1</span> 
+              <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">24</span><span class="p">)</span> <span class="o">*</span> <span class="n">l6</span> <span class="o">*</span> <span class="n">U1</span><span class="o">**</span><span class="mi">3</span>
+              <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">13</span><span class="p">)</span> <span class="o">*</span> <span class="n">l0</span> <span class="o">*</span> <span class="n">U3</span><span class="o">**</span><span class="mi">3</span> 
+             <span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="tests">
-<h3><span class="section-number">3.7.2. </span>Tests<a class="headerlink" href="#tests" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigmaApp1</span><span class="p">(</span><span class="mf">0.00015</span><span class="p">,</span><span class="mf">0.00023</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp1</span><span class="p">(</span><span class="mf">0.000071</span><span class="p">,</span><span class="mf">0.000091</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.52747253533945
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigma</span><span class="p">(</span><span class="mf">0.00015</span><span class="p">,</span><span class="mf">0.00023</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span><span class="p">(</span><span class="mf">0.000071</span><span class="p">,</span><span class="mf">0.000091</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.27708680068127 + 4.38371561273243e-13*I
-</pre></div>
-</div>
-</div>
-</div>
+<section id="id2">
+<h3><span class="section-number">3.7.2. </span>Tests<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u1</span><span class="o">=</span><span class="mf">2.21231</span>
@@ -1112,6 +1240,8 @@ the tolerance indicated by the precision of the base ring. Note that the toleran
 <span class="n">testS</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
 <span class="n">testSApp1</span> <span class="o">=</span> <span class="n">sigmaApp1</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp1</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
 <span class="n">testSApp2</span> <span class="o">=</span> <span class="n">sigmaApp2</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp2</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
+<span class="n">testSApp3</span> <span class="o">=</span> <span class="n">sigmaApp3</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp3</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
+<span class="n">testSApp4</span> <span class="o">=</span> <span class="n">sigmaApp4</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp4</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp1:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp1</span><span class="p">)</span>
@@ -1119,20 +1249,32 @@ the tolerance indicated by the precision of the base ring. Note that the toleran
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp2:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Difference between sigmaApp1 and sigmaApp2:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">testSApp1</span><span class="o">-</span><span class="n">testSApp2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp3:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp4:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Difference between sigmaApp1 and sigmaApp3:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">testSApp1</span><span class="o">-</span><span class="n">testSApp3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result for comparison with sigmaApp1:
--0.918639409348415 - 9.71445146547012e-17*I
+-0.918639409348415 - 1.11022302462516e-16*I
 
 Result for comparison with sigmaApp2:
--0.918639706374917 - 9.71445146547012e-17*I
+-0.918639706374917 - 1.11022302462516e-16*I
 
-Difference between sigmaApp1 and sigmaApp2:
--2.97026502282804e-7
+Result for comparison with sigmaApp3:
+0.240503143950716 - 1.11022302462516e-16*I
+
+Result for comparison with sigmaApp4:
+0.239474509747872 - 1.11022302462516e-16*I
+
+Difference between sigmaApp1 and sigmaApp3:
+1.15914255329913
 </pre></div>
 </div>
 </div>
@@ -1144,6 +1286,8 @@ Difference between sigmaApp1 and sigmaApp2:
 <span class="n">testS</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
 <span class="n">testSApp1</span> <span class="o">=</span> <span class="n">sigmaApp1</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp1</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
 <span class="n">testSApp2</span> <span class="o">=</span> <span class="n">sigmaApp2</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp2</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
+<span class="n">testSApp3</span> <span class="o">=</span> <span class="n">sigmaApp3</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp3</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
+<span class="n">testSApp4</span> <span class="o">=</span> <span class="n">sigmaApp4</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp4</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp1:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp1</span><span class="p">)</span>
@@ -1151,8 +1295,14 @@ Difference between sigmaApp1 and sigmaApp2:
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp2:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Difference between sigmaApp1 and sigmaApp2:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">testSApp1</span><span class="o">-</span><span class="n">testSApp2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp3:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp4:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Difference between sigmaApp1 and sigmaApp3:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">testSApp1</span><span class="o">-</span><span class="n">testSApp3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1163,8 +1313,14 @@ Difference between sigmaApp1 and sigmaApp2:
 Result for comparison with sigmaApp2:
 -0.884388199106278 + 9.45354905468321e-14*I
 
-Difference between sigmaApp1 and sigmaApp2:
-0.000000000000000
+Result for comparison with sigmaApp3:
+0.266400976142481 + 9.45354905468321e-14*I
+
+Result for comparison with sigmaApp4:
+0.266400975114249 + 9.45354905468321e-14*I
+
+Difference between sigmaApp1 and sigmaApp3:
+1.15078917524876
 </pre></div>
 </div>
 </div>
@@ -1176,6 +1332,8 @@ Difference between sigmaApp1 and sigmaApp2:
 <span class="n">testS</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
 <span class="n">testSApp1</span> <span class="o">=</span> <span class="n">sigmaApp1</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp1</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
 <span class="n">testSApp2</span> <span class="o">=</span> <span class="n">sigmaApp2</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp2</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
+<span class="n">testSApp3</span> <span class="o">=</span> <span class="n">sigmaApp3</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp3</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
+<span class="n">testSApp4</span> <span class="o">=</span> <span class="n">sigmaApp4</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp4</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp1:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp1</span><span class="p">)</span>
@@ -1183,8 +1341,14 @@ Difference between sigmaApp1 and sigmaApp2:
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp2:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Difference between sigmaApp1 and sigmaApp2:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">testSApp1</span><span class="o">-</span><span class="n">testSApp2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp3:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp4:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Difference between sigmaApp1 and sigmaApp3:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">testSApp1</span><span class="o">-</span><span class="n">testSApp3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1195,8 +1359,14 @@ Difference between sigmaApp1 and sigmaApp2:
 Result for comparison with sigmaApp2:
 -0.884388164535101 - 2.32167818303708e-9*I
 
-Difference between sigmaApp1 and sigmaApp2:
-0.000000000000000
+Result for comparison with sigmaApp3:
+0.266401002545177 - 2.32167818303708e-9*I
+
+Result for comparison with sigmaApp4:
+0.266401002545177 - 2.32167818303708e-9*I
+
+Difference between sigmaApp1 and sigmaApp3:
+1.15078916708028
 </pre></div>
 </div>
 </div>
@@ -1208,6 +1378,8 @@ Difference between sigmaApp1 and sigmaApp2:
 <span class="n">testS</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
 <span class="n">testSApp1</span> <span class="o">=</span> <span class="n">sigmaApp1</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp1</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
 <span class="n">testSApp2</span> <span class="o">=</span> <span class="n">sigmaApp2</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp2</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
+<span class="n">testSApp3</span> <span class="o">=</span> <span class="n">sigmaApp3</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp3</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
+<span class="n">testSApp4</span> <span class="o">=</span> <span class="n">sigmaApp4</span><span class="p">(</span><span class="n">u1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">u3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="n">sigmaApp4</span><span class="p">(</span><span class="n">k1</span><span class="o">*</span><span class="n">d</span><span class="p">,</span><span class="n">k3</span><span class="o">*</span><span class="n">d</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp1:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp1</span><span class="p">)</span>
@@ -1215,20 +1387,32 @@ Difference between sigmaApp1 and sigmaApp2:
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp2:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Difference between sigmaApp1 and sigmaApp2:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">testSApp1</span><span class="o">-</span><span class="n">testSApp2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp3:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result for comparison with sigmaApp4:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">testS</span><span class="o">-</span><span class="n">testSApp4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Difference between sigmaApp1 and sigmaApp3:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">testSApp1</span><span class="o">-</span><span class="n">testSApp3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Result for comparison with sigmaApp1:
--0.884387983476935 - 0.00167405920267916*I
+-0.884387983476935 - 0.00167405920267910*I
 
 Result for comparison with sigmaApp2:
--0.884387983476935 - 0.00167405920267916*I
+-0.884387983476935 - 0.00167405920267910*I
 
-Difference between sigmaApp1 and sigmaApp2:
-0.000000000000000
+Result for comparison with sigmaApp3:
+0.266401183603342 - 0.00167405920267910*I
+
+Result for comparison with sigmaApp4:
+0.266401183603342 - 0.00167405920267910*I
+
+Difference between sigmaApp1 and sigmaApp3:
+1.15078916708028
 </pre></div>
 </div>
 </div>
@@ -1240,12 +1424,20 @@ Difference between sigmaApp1 and sigmaApp2:
 </section>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u1</span><span class="o">=</span><span class="mi">10</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#The C constant test based on the first two approximations</span>
+
+<span class="n">u1</span><span class="o">=</span><span class="mi">10</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">u3</span><span class="o">=</span><span class="mf">0.0012131</span>
 
 <span class="n">Capp</span><span class="o">=</span><span class="n">u3</span><span class="o">/</span><span class="n">Tsigma</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C from definition:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C2 from definition:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C3 from definition:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Approximate C:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Capp</span><span class="p">)</span>
@@ -1254,10 +1446,54 @@ Difference between sigmaApp1 and sigmaApp2:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C from definition:
-1.37901860572385 + 1.32549303772618*I
+0.141841687815806 + 0.538908396778394*I
+
+C2 from definition:
+0.526634148916357 + 0.182202628180384*I
+
+C3 from definition:
+-0.36440525636076754 + 1.0532682978327146*I
 
 Approximate C:
 -0.394449548035152 + 0.592130183781763*I
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#The C constant test based on the last two approximations</span>
+
+<span class="n">u3</span><span class="o">=</span><span class="mi">10</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">u1</span><span class="o">=</span><span class="mf">0.0012131</span>
+
+<span class="n">Capp</span><span class="o">=</span><span class="n">u1</span><span class="o">/</span><span class="n">Tsigma</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C from definition:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C2 from definition:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C3 from definition:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Approximate C:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Capp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C from definition:
+0.141841687815806 + 0.538908396778394*I
+
+C2 from definition:
+0.526634148916357 + 0.182202628180384*I
+
+C3 from definition:
+-0.36440525636076754 + 1.0532682978327146*I
+
+Approximate C:
+-0.202079378743055 + 0.303352609401302*I
 </pre></div>
 </div>
 </div>
@@ -1306,14 +1542,260 @@ Approximate C:
     <span class="n">e</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">vector</span><span class="p">([</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">])</span><span class="o">*</span><span class="n">kappa</span><span class="o">*</span><span class="n">vector</span><span class="p">([</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">])))</span>
     <span class="n">theta</span> <span class="o">=</span> <span class="n">RTtem</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">vec</span><span class="p">,</span><span class="n">char</span><span class="o">=</span><span class="n">KChl</span><span class="p">,</span><span class="n">derivs</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">e</span><span class="o">*</span><span class="n">theta</span>
+
+<span class="c1"># third derivative of sigma over U3</span>
+<span class="k">def</span> <span class="nf">Tsigma333</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">):</span>
+    <span class="n">vec</span><span class="o">=</span><span class="n">omega_inv</span> <span class="o">*</span> <span class="n">vector</span><span class="p">([</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">])</span>
+    <span class="n">RTtem</span><span class="o">=</span><span class="n">RiemannTheta</span><span class="p">(</span><span class="n">tau</span><span class="p">)</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">vector</span><span class="p">([</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">])</span><span class="o">*</span><span class="n">kappa</span><span class="o">*</span><span class="n">vector</span><span class="p">([</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">])))</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">RTtem</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">vec</span><span class="p">,</span><span class="n">char</span><span class="o">=</span><span class="n">KChl</span><span class="p">,</span><span class="n">derivs</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">e</span><span class="o">*</span><span class="n">theta</span>
+
+<span class="c1"># fourth derivative of sigma over U3</span>
+<span class="k">def</span> <span class="nf">Tsigma3333</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">):</span>
+    <span class="n">vec</span><span class="o">=</span><span class="n">omega_inv</span> <span class="o">*</span> <span class="n">vector</span><span class="p">([</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">])</span>
+    <span class="n">RTtem</span><span class="o">=</span><span class="n">RiemannTheta</span><span class="p">(</span><span class="n">tau</span><span class="p">)</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">vector</span><span class="p">([</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">])</span><span class="o">*</span><span class="n">kappa</span><span class="o">*</span><span class="n">vector</span><span class="p">([</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">])))</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">RTtem</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">vec</span><span class="p">,</span><span class="n">char</span><span class="o">=</span><span class="n">KChl</span><span class="p">,</span><span class="n">derivs</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">e</span><span class="o">*</span><span class="n">theta</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="id3">
+<h4><span class="section-number">3.7.3.1. </span>Tests<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Approx deriv. </span>
+<span class="c1"># We define variables</span>
+<span class="n">var</span><span class="p">(</span><span class="s1">&#39;U1 U3&#39;</span><span class="p">)</span>
+
+<span class="c1"># sigma1</span>
+<span class="k">def</span> <span class="nf">sigma1App1</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp1</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+<span class="c1"># sigma11</span>
+<span class="k">def</span> <span class="nf">sigma11App1</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp1</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>    
+
+<span class="c1"># sigma3</span>
+<span class="k">def</span> <span class="nf">sigma3App1</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp1</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># sigma13</span>
+<span class="k">def</span> <span class="nf">sigma13App1</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp1</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>  
+
+<span class="c1"># sigma33</span>
+<span class="k">def</span> <span class="nf">sigma33App1</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp1</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span> 
+
+<span class="c1"># Second App formula</span>
+<span class="c1"># sigma1</span>
+<span class="k">def</span> <span class="nf">sigma1App2</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp2</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># sigma11</span>
+<span class="k">def</span> <span class="nf">sigma11App2</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp2</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># sigma3</span>
+<span class="k">def</span> <span class="nf">sigma3App2</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp2</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># sigma13</span>
+<span class="k">def</span> <span class="nf">sigma13App2</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp2</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># sigma33</span>
+<span class="k">def</span> <span class="nf">sigma33App2</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp2</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># Third App formula</span>
+<span class="c1"># sigma1</span>
+<span class="k">def</span> <span class="nf">sigma1App3</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp3</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># sigma11</span>
+<span class="k">def</span> <span class="nf">sigma11App3</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp3</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># sigma13</span>
+<span class="k">def</span> <span class="nf">sigma13App3</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp3</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U1</span><span class="p">,</span><span class="n">U3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># sigma3</span>
+<span class="k">def</span> <span class="nf">sigma3App3</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp3</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># sigma33</span>
+<span class="k">def</span> <span class="nf">sigma33App3</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp3</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># Fourth App formula</span>
+<span class="c1"># sigma1</span>
+<span class="k">def</span> <span class="nf">sigma1App4</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp4</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># sigma11</span>
+<span class="k">def</span> <span class="nf">sigma11App4</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp4</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U1</span><span class="p">,</span><span class="n">U3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># sigma13</span>
+<span class="k">def</span> <span class="nf">sigma13App4</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp4</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U1</span><span class="p">,</span><span class="n">U3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># sigma3</span>
+<span class="k">def</span> <span class="nf">sigma3App4</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp4</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># sigma33</span>
+<span class="k">def</span> <span class="nf">sigma33App4</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigmaApp4</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">),</span> <span class="n">U3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Test</span>
+
+<span class="n">u1</span> <span class="o">=</span> <span class="mf">0.000015</span>
+<span class="n">u3</span> <span class="o">=</span> <span class="mf">0.000023</span>
+<span class="n">k1</span> <span class="o">=</span> <span class="mf">0.0000071</span>
+<span class="n">k3</span> <span class="o">=</span> <span class="mf">0.0000091</span>
+
+<span class="n">t1s</span> <span class="o">=</span> <span class="n">Tsigma1</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">Tsigma1</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t1A1</span> <span class="o">=</span> <span class="n">sigma1App1</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma1App1</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t1A2</span> <span class="o">=</span> <span class="n">sigma1App2</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma1App2</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t1A3</span> <span class="o">=</span> <span class="n">sigma1App3</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma1App3</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t1A4</span> <span class="o">=</span> <span class="n">sigma1App4</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma1App4</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+
+<span class="n">t3s</span> <span class="o">=</span> <span class="n">Tsigma3</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">Tsigma3</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t3A1</span> <span class="o">=</span> <span class="n">sigma3App1</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma3App1</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t3A2</span> <span class="o">=</span> <span class="n">sigma3App2</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma3App2</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t3A3</span> <span class="o">=</span> <span class="n">sigma3App3</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma3App3</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t3A4</span> <span class="o">=</span> <span class="n">sigma3App4</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma3App4</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+
+<span class="n">t13s</span> <span class="o">=</span> <span class="n">Tsigma13</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">Tsigma13</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t13A1</span> <span class="o">=</span> <span class="n">sigma13App1</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma13App1</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t13A2</span> <span class="o">=</span> <span class="n">sigma13App2</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma13App2</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t13A3</span> <span class="o">=</span> <span class="n">sigma13App3</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma13App3</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t13A4</span> <span class="o">=</span> <span class="n">sigma13App4</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma13App4</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+
+<span class="n">t11s</span> <span class="o">=</span> <span class="n">Tsigma11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">Tsigma11</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t11A1</span> <span class="o">=</span> <span class="n">sigma11App1</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma11App1</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t11A2</span> <span class="o">=</span> <span class="n">sigma11App2</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma11App2</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t11A3</span> <span class="o">=</span> <span class="n">sigma11App3</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma11App3</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t11A4</span> <span class="o">=</span> <span class="n">sigma11App4</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma11App4</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+
+<span class="n">t33s</span> <span class="o">=</span> <span class="n">Tsigma33</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">Tsigma33</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t33A1</span> <span class="o">=</span> <span class="n">sigma33App1</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma33App1</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t33A2</span> <span class="o">=</span> <span class="n">sigma33App2</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma33App2</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t33A3</span> <span class="o">=</span> <span class="n">sigma33App3</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma33App3</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+<span class="n">t33A4</span> <span class="o">=</span> <span class="n">sigma33App4</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">/</span><span class="n">sigma33App4</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Comparison of the derivative values for small (u1,u3) with the values of approximate definitions&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sigma_1(u):&quot;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 1:&quot;</span><span class="p">,</span> <span class="n">t1s</span><span class="o">-</span><span class="n">t1A1</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 2:&quot;</span><span class="p">,</span> <span class="n">t1s</span><span class="o">-</span><span class="n">t1A2</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 3:&quot;</span><span class="p">,</span> <span class="n">t1s</span><span class="o">-</span><span class="n">t1A3</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 4:&quot;</span><span class="p">,</span> <span class="n">t1s</span><span class="o">-</span><span class="n">t1A4</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sigma_3(u):&quot;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 1:&quot;</span><span class="p">,</span> <span class="n">t3s</span><span class="o">-</span><span class="n">t3A1</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 2:&quot;</span><span class="p">,</span> <span class="n">t3s</span><span class="o">-</span><span class="n">t3A2</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 3:&quot;</span><span class="p">,</span> <span class="n">t3s</span><span class="o">-</span><span class="n">t3A3</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 4:&quot;</span><span class="p">,</span> <span class="n">t3s</span><span class="o">-</span><span class="n">t3A4</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sigma_13(u):&quot;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 1:&quot;</span><span class="p">,</span> <span class="n">t13s</span><span class="o">-</span><span class="n">t13A1</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 2:&quot;</span><span class="p">,</span> <span class="n">t13s</span><span class="o">-</span><span class="n">t13A2</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 3:&quot;</span><span class="p">,</span> <span class="n">t13s</span><span class="o">-</span><span class="n">t13A3</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 4:&quot;</span><span class="p">,</span> <span class="n">t13s</span><span class="o">-</span><span class="n">t13A4</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sigma_11(u):&quot;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 1:&quot;</span><span class="p">,</span> <span class="n">t11s</span><span class="o">-</span><span class="n">t11A1</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 2:&quot;</span><span class="p">,</span> <span class="n">t11s</span><span class="o">-</span><span class="n">t11A2</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 3:&quot;</span><span class="p">,</span> <span class="n">t11s</span><span class="o">-</span><span class="n">t11A3</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 4:&quot;</span><span class="p">,</span> <span class="n">t11s</span><span class="o">-</span><span class="n">t11A4</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sigma_33(u):&quot;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 1:&quot;</span><span class="p">,</span> <span class="n">t33s</span><span class="o">-</span><span class="n">t33A1</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 2:&quot;</span><span class="p">,</span> <span class="n">t33s</span><span class="o">-</span><span class="n">t33A2</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 3:&quot;</span><span class="p">,</span> <span class="n">t33s</span><span class="o">-</span><span class="n">t33A3</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-Approx 4:&quot;</span><span class="p">,</span> <span class="n">t33s</span><span class="o">-</span><span class="n">t33A4</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Comparison of the derivative values for small (u1,u3) with the values of approximate definitions
+
+Sigma_1(u):
+-Approx 1: -3.46340016028878 + 1.51068251241782e-8*I
+-Approx 2: -3.46340016028878 + 1.51068251241782e-8*I
+-Approx 3: -1.04672448486554e-9 + 1.51068251241782e-8*I
+-Approx 4: -1.04672448486554e-9 + 1.51068251241782e-8*I
+
+Sigma_3(u):
+-Approx 1: 2.50665199708067e-9
+-Approx 2: 2.50665199708067e-9
+-Approx 3: -5.38811737442093
+-Approx 4: -5.38811737442093
+
+Sigma_13(u):
+-Approx 1: -12.2140980778502 + 0.232711163457174*I
+-Approx 2: -12.2140980781028 + 0.232711163457174*I
+-Approx 3: NaN + 0.232711163457174*I
+-Approx 4: NaN + 0.232711163457174*I
+
+Sigma_11(u):
+-Approx 1: 0.287763214450281 + 0.00702792297612786*I
+-Approx 2: 0.287763214450281 + 0.00702792297612786*I
+-Approx 3: 0.287763220679852 + 0.00702792297612786*I
+-Approx 4: NaN + 0.00702792297612786*I
+
+Sigma_33(u):
+-Approx 1: -0.249906823826918 - 9.18798370719287e-12*I
+-Approx 2: -0.249906823826918 - 9.18798370719287e-12*I
+-Approx 3: -0.249906847998870 - 9.18798370719287e-12*I
+-Approx 4: -0.249906847998870 - 9.18798370719287e-12*I
+</pre></div>
+</div>
+</div>
+</div>
+<div class="proof observation admonition" id="observation-1">
+<p class="admonition-title"><span class="caption-number">Observation 3.2 </span></p>
+<section class="observation-content" id="proof-content">
+<p>This approximation of the sigma function value for small values needs to be cleaned up</p>
+</section>
+</div></section>
 </section>
 </section>
 <section id="wp-functions">
 <h2><span class="section-number">3.8. </span><span class="math notranslate nohighlight">\(\wp\)</span>-Functions<a class="headerlink" href="#wp-functions" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="2.%20Genus%3D2.html#wp_df">Definition 2.8</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definition with sigmas</span>
@@ -1343,12 +1825,22 @@ Approximate C:
     <span class="n">sigma33</span> <span class="o">=</span> <span class="n">Tsigma33</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">)</span>
     <span class="n">expr</span> <span class="o">=</span> <span class="p">(</span><span class="n">sigma3</span><span class="o">*</span><span class="n">sigma3</span> <span class="o">-</span> <span class="n">sigma_expr</span><span class="o">*</span><span class="n">sigma33</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">sigma_expr</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">expr</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>    
+
+<span class="c1"># WeierstrassP3333</span>
+<span class="k">def</span> <span class="nf">WeierstrassP3333</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">Sigma</span> <span class="o">=</span> <span class="n">Tsigma</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">)</span>
+    <span class="n">Sigma3</span> <span class="o">=</span> <span class="n">Tsigma3</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">)</span>
+    <span class="n">Sigma33</span> <span class="o">=</span> <span class="n">Tsigma33</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">)</span>
+    <span class="n">Sigma333</span> <span class="o">=</span> <span class="n">Tsigma333</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">)</span>
+    <span class="n">Sigma3333</span> <span class="o">=</span> <span class="n">Tsigma3333</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">)</span>
+    <span class="n">expr</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="o">*</span> <span class="n">Sigma3</span><span class="o">^</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">12</span> <span class="o">*</span> <span class="n">Sigma</span> <span class="o">*</span> <span class="n">Sigma3</span><span class="o">^</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Sigma33</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">Sigma</span><span class="o">^</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Sigma33</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">Sigma</span><span class="o">^</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Sigma3</span> <span class="o">*</span> <span class="n">Sigma333</span> <span class="o">-</span> <span class="n">Sigma</span><span class="o">^</span><span class="mi">3</span> <span class="o">*</span> <span class="n">Sigma3333</span> <span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Sigma</span><span class="o">^</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">expr</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>   
 </pre></div>
 </div>
 </div>
 </div>
-<section id="id1">
-<h3><span class="section-number">3.8.1. </span>Tests<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3><span class="section-number">3.8.1. </span>Tests<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ntest</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
@@ -1493,12 +1985,103 @@ Test P33:
 </div>
 </div>
 </div>
-<div class="proof observation admonition" id="observation-1">
-<p class="admonition-title"><span class="caption-number">Observation 3.2 </span></p>
+<div class="proof observation admonition" id="observation-2">
+<p class="admonition-title"><span class="caption-number">Observation 3.3 </span></p>
 <section class="observation-content" id="proof-content">
 <p>Thanks to the RiemannTheata package, there is no problem with large period repetitions and the calculations are performed much faster</p>
 </section>
 </div></section>
+<section id="basic-relations">
+<h3><span class="section-number">3.8.2. </span>Basic relations<a class="headerlink" href="#basic-relations" title="Link to this heading">#</a></h3>
+<section id="i">
+<h4><span class="section-number">3.8.2.1. </span>I.<a class="headerlink" href="#i" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="2.%20Genus%3D2.html#wp3333">Definition 2.9</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u1</span> <span class="o">=</span> <span class="mf">0.212131</span>
+<span class="n">u3</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.231</span>
+
+<span class="n">RHS</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">WeierstrassP33</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">l2</span> <span class="o">*</span> <span class="n">WeierstrassP33</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span> <span class="o">+</span> <span class="n">l0</span> <span class="o">*</span> <span class="n">WeierstrassP13</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span><span class="o">*</span><span class="n">l4</span><span class="o">*</span><span class="n">l0</span>
+<span class="n">RHS</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>171.497502935101 - 3.81020381888539*I
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">WeierstrassP3333</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>507.268789007104 - 1.36424205265939e-12*I
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ii">
+<h4><span class="section-number">3.8.2.2. </span>II.<a class="headerlink" href="#ii" title="Link to this heading">#</a></h4>
+<p><a class="reference internal" href="2.%20Genus%3D2.html#addition_formula">Definition 2.10</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u1</span> <span class="o">=</span> <span class="mf">1.2131</span>
+<span class="n">u3</span> <span class="o">=</span> <span class="mf">7.231</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.32131</span>
+<span class="n">v3</span> <span class="o">=</span> <span class="mf">9.1231</span>
+
+<span class="n">LHS</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tsigma</span><span class="p">(</span><span class="n">u1</span><span class="o">+</span><span class="n">v1</span><span class="p">,</span> <span class="n">u3</span><span class="o">+</span><span class="n">v3</span><span class="p">)</span> <span class="o">*</span> <span class="n">Tsigma</span><span class="p">(</span><span class="n">u1</span><span class="o">-</span><span class="n">v1</span><span class="p">,</span> <span class="n">u3</span><span class="o">-</span><span class="n">v3</span><span class="p">))</span><span class="o">/</span> <span class="p">(</span><span class="n">Tsigma</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Tsigma</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">RHS</span> <span class="o">=</span> <span class="n">WeierstrassP33</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span> <span class="o">*</span> <span class="n">WeierstrassP13</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v3</span><span class="p">)</span> <span class="o">-</span> <span class="n">WeierstrassP13</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span> <span class="o">*</span> <span class="n">WeierstrassP33</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v3</span><span class="p">)</span> <span class="o">-</span> <span class="n">WeierstrassP11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span> <span class="o">+</span> <span class="n">WeierstrassP11</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LHS:&quot;</span><span class="p">,</span> <span class="n">LHS</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RHS:&quot;</span><span class="p">,</span> <span class="n">RHS</span><span class="p">)</span>
+<span class="c1">#the square root of a fraction should be equal to the constant C from the definition of the Sigma function</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C constant:&quot;</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">RHS</span><span class="o">/</span><span class="n">LHS</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LHS: -0.0390350065536316 - 0.0934967676081618*I
+RHS: -6.79063037934265 + 4.33713413558659*I
+C constant: 5.73786598022205 - 6.82668500216628*I
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u1</span> <span class="o">=</span> <span class="mf">0.212131</span>
+<span class="n">u3</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.231</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.41232131</span>
+<span class="n">v3</span> <span class="o">=</span> <span class="mf">4.1231</span>
+
+<span class="n">LHS</span> <span class="o">=</span> <span class="p">(</span><span class="n">Tsigma</span><span class="p">(</span><span class="n">u1</span><span class="o">+</span><span class="n">v1</span><span class="p">,</span> <span class="n">u3</span><span class="o">+</span><span class="n">v3</span><span class="p">)</span> <span class="o">*</span> <span class="n">Tsigma</span><span class="p">(</span><span class="n">u1</span><span class="o">-</span><span class="n">v1</span><span class="p">,</span> <span class="n">u3</span><span class="o">-</span><span class="n">v3</span><span class="p">))</span><span class="o">/</span> <span class="p">(</span><span class="n">Tsigma</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">*</span> <span class="n">Tsigma</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">RHS</span> <span class="o">=</span> <span class="n">WeierstrassP33</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span> <span class="o">*</span> <span class="n">WeierstrassP13</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v3</span><span class="p">)</span> <span class="o">-</span> <span class="n">WeierstrassP13</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span> <span class="o">*</span> <span class="n">WeierstrassP33</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v3</span><span class="p">)</span> <span class="o">-</span> <span class="n">WeierstrassP11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span><span class="n">u3</span><span class="p">)</span> <span class="o">+</span> <span class="n">WeierstrassP11</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LHS:&quot;</span><span class="p">,</span> <span class="n">LHS</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RHS:&quot;</span><span class="p">,</span> <span class="n">RHS</span><span class="p">)</span>
+<span class="c1">#the square root of a fraction should be equal to the constant C from the definition of the Sigma function</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C constant:&quot;</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">RHS</span><span class="o">/</span><span class="n">LHS</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LHS: 0.526427255076736 + 1.26090017848212*I
+RHS: 11.3163279420617 - 0.863053328652273*I
+C constant: 2.33601808483570 - 1.68791189834995*I
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 <section id="jacobi-inversion-problem-on-branch-points">
 <h2><span class="section-number">3.9. </span>Jacobi inversion problem on branch points<a class="headerlink" href="#jacobi-inversion-problem-on-branch-points" title="Link to this heading">#</a></h2>
@@ -1547,8 +2130,8 @@ Test P33:
 </div>
 </div>
 </section>
-<section id="id2">
-<h3><span class="section-number">3.9.2. </span>Tests<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h3><span class="section-number">3.9.2. </span>Tests<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u1</span><span class="o">=</span><span class="n">AJ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1561,7 +2144,7 @@ Test P33:
 <span class="nb">print</span><span class="p">(</span><span class="n">WeierstrassP13</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P33(u):&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">WeierstrassP11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">WeierstrassP33</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1571,7 +2154,7 @@ Test P33:
 P13(u):
 -4.71550103486836 - 4.28713142229178*I
 P33(u):
-9.90660612582494 + 15.7680152150508*I
+-6.10312233060515 + 3.64722933554347*I
 </pre></div>
 </div>
 </div>
@@ -1595,12 +2178,23 @@ P33(u):
 <p>We should get:</p>
 <div class="math notranslate nohighlight">
 \[    x^2 - \wp_{11}(\mathbf{u}) \;x - \wp_{13}(\mathbf{u})=0,\]</div>
-<div class="proof observation admonition" id="observation-2">
-<p class="admonition-title"><span class="caption-number">Observation 3.3 </span></p>
+<div class="proof observation admonition" id="observation-3">
+<p class="admonition-title"><span class="caption-number">Observation 3.4 </span></p>
 <section class="observation-content" id="proof-content">
-<p>Unfortunately the final result is still wrong, but additionally obtained values are different.</p>
+<p>Unfortunately the final result is still wrong.</p>
 </section>
 </div></section>
+</section>
+<section id="bibliography">
+<h2><span class="section-number">3.10. </span>Bibliography<a class="headerlink" href="#bibliography" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id6">
+<div role="list" class="citation-list">
+<div class="citation" id="id13" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Julia Bernatska. Computation of \$\wp\$-functions on plane algebraic curves. July 2024. URL: <a class="reference external" href="https://arxiv.org/abs/2407.05632v3">https://arxiv.org/abs/2407.05632v3</a> (visited on 2024-10-17).</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1667,23 +2261,35 @@ P33(u):
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#legendre-relation">3.4. Legendre relation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theta-function">3.5. Theta function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-branch-points">3.6. Characteristics of branch points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-of-branch-points">3.5. Characteristics of branch points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theta-function">3.6. Theta function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">3.6.1. Tests</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sigma-functions">3.7. <span class="math notranslate nohighlight">\(\sigma\)</span>-Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#approximate-definitions">3.7.1. Approximate definitions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">3.7.2. Tests</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives">3.7.3. Derivatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.7.2. Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives">3.7.3. Derivatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.7.3.1. Tests</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wp-functions">3.8. <span class="math notranslate nohighlight">\(\wp\)</span>-Functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.8.1. Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.8.1. Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-relations">3.8.2. Basic relations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#i">3.8.2.1. I.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ii">3.8.2.2. II.</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-inversion-problem-on-branch-points">3.9. Jacobi inversion problem on branch points</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#divisor">3.9.1. Divisor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.9.2. Tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.9.2. Tests</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">3.10. Bibliography</a></li>
 </ul>
   </nav></div>
 
