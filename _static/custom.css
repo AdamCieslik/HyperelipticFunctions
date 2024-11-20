@@ -38,3 +38,17 @@ h6 {
 em {
     font-style: italic;
 }
+
+/* Logo dla ciemnego motywu */
+@media (prefers-color-scheme: dark) {
+    .navbar-brand img {
+        content: url("/Users/adamcieslik/Desktop/Sage-Jupyter/PfunctionBook/_static/logo-dark.png"); /* Ścieżka do ciemnego logo */
+    }
+}
+
+/* Logo dla jasnego motywu */
+@media (prefers-color-scheme: light) {
+    .navbar-brand img {
+        content: url("/Users/adamcieslik/Desktop/Sage-Jupyter/PfunctionBook/_static/logo-light.png"); /* Ścieżka do jasnego logo */
+    }
+}

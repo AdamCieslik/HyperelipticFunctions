@@ -32,11 +32,11 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=ae36ea3d" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=6a117c68" />
     <link rel="stylesheet" type="text/css" href="_static/css/.ipynb_checkpoints/custom-checkpoint.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -158,8 +158,8 @@
       
     
     
-    <img src="_static/wp-logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/wp-logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
   
   
 </a></div>
@@ -398,23 +398,21 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="preliminaries">
 <h1><span class="section-number">1. </span>Preliminaries<a class="headerlink" href="#preliminaries" title="Link to this heading">#</a></h1>
-<p>Many works on hyperelliptic functions and Riemann surfaces use similar notation, leading to potential collisions. To avoid this, I provide a legend of notations.</p>
+<p>Many works on hyperelliptic functions and Riemann surfaces use similar notation, which can lead to potential naming collisions. To avoid such collisions, a legend of notations used in this notebook is provided below.</p>
 <section id="legend">
 <h2><span class="section-number">1.1. </span>Legend<a class="headerlink" href="#legend" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mathscr{C}\)</span> - Curve</p></li>
 <li><p><span class="math notranslate nohighlight">\(X\)</span> - Riemann surface</p></li>
 <li><p><span class="math notranslate nohighlight">\(e_i\)</span> - branch points</p></li>
-<li><p><span class="math notranslate nohighlight">\(w\)</span> - An Abelian differential on the Riemann surface <span class="math notranslate nohighlight">\(X\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(w\)</span> - an Abelian differential on the Riemann surface <span class="math notranslate nohighlight">\(X\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(W\)</span> - general Abelian integral</p></li>
 <li><p><span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> - A- and B-periods of the differential <span class="math notranslate nohighlight">\(w=dW\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(du\)</span> - First kind differential</p></li>
 <li><p><span class="math notranslate nohighlight">\(dr\)</span> - Second kind differential</p></li>
-<li><p><span class="math notranslate nohighlight">\(dl\)</span> - Third kind differential</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathfrak{a}_i, \mathfrak{b}_i\)</span> - Canonical homology cycles</p></li>
 <li><p><span class="math notranslate nohighlight">\(\omega\)</span> -  First kind integrals</p></li>
 <li><p><span class="math notranslate nohighlight">\(\eta\)</span> - Second kind integrals</p></li>
-<li><p><span class="math notranslate nohighlight">\(\lambda\)</span> - Third kind integrals</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathcal{A}\)</span> - Abel map</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathfrak{m}(\mathbf{u})\)</span> - A meromorphic function of <span class="math notranslate nohighlight">\(\mathbf{u}\in\mathbb{C}^g\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\Omega\)</span> - Periodic matrices</p></li>
@@ -422,26 +420,24 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(\mathrm{Jac}(\mathscr{C})\)</span> - Jacobian variety of the curve <span class="math notranslate nohighlight">\(\mathscr{C}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(D\)</span> - Divisor  on the Riemann surface <span class="math notranslate nohighlight">\(X\)</span></p></li>
 </ul>
-<p>Now we present the basic definitions</p>
 </section>
 <section id="hyperelliptic-curve">
 <h2><span class="section-number">1.2. </span>Hyperelliptic curve<a class="headerlink" href="#hyperelliptic-curve" title="Link to this heading">#</a></h2>
+<p>In studies on hyperelliptic functions, various conventions for defining a curve, and consequently the hyperelliptic functions, can be found. In this notebook, we adopt the convention presented in <span id="id1">[<a class="reference internal" href="3.%20WithRiemmPack.html#id13" title="Julia Bernatska. Computation of \$\wp\$-functions on plane algebraic curves. July 2024. URL: https://arxiv.org/abs/2407.05632v3 (visited on 2024-10-17).">1</a>]</span></p>
+<p>Additionally, conventions for curves in both general and canonical forms are also discussed in dedicated notebooks: <code class="docutils literal notranslate"><span class="pre">canonical-name.ipynb</span></code> and <code class="docutils literal notranslate"><span class="pre">general-name.ipynb</span></code>. Please refer to these notebooks for further details.</p>
 <div class="proof definition admonition" id="hyperelliptic_curve">
 <p class="admonition-title"><span class="caption-number">Definition 1.1 </span></p>
 <section class="definition-content" id="proof-content">
 <p>The hyperelliptic curve is defined by the equation</p>
 <div class="math notranslate nohighlight">
-\[\mathscr{C} = \{ (x,y)\in \mathbb{C}^2 \mid f(x,y)= \},\]</div>
+\[\mathscr{C} = \{ (x,y)\in \mathbb{C}^2 \mid f(x,y)=0 \},\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
 \[f(x,y) = -y^2 + x^{2g+1} + \sum_{i=0}^{2g}\lambda_{2i+2}x^{2g-i}, \quad \lambda_{k\leq0}=0,\; \lambda_0 =1, \; \lambda_k \in \mathbb{R}.\]</div>
 </section>
 </div><div class="admonition note">
 <p class="admonition-title">Note</p>
-<ul class="simple">
-<li><p>We use convention from <span id="id1">[<a class="reference internal" href="3.%20WithRiemmPack.html#id13" title="Julia Bernatska. Computation of \$\wp\$-functions on plane algebraic curves. July 2024. URL: https://arxiv.org/abs/2407.05632v3 (visited on 2024-10-17).">1</a>]</span>.</p></li>
-<li><p>We are working with physical equations where <span class="math notranslate nohighlight">\(\lambda_k \in \mathbb{R}\)</span> instead of <span class="math notranslate nohighlight">\(\lambda_k \in \mathbb{C}\)</span> which can be found in various texts.</p></li>
-</ul>
+<p>We assume <span class="math notranslate nohighlight">\(\lambda_k \in \mathbb{R}\)</span>, instead of <span class="math notranslate nohighlight">\(\lambda_k \in \mathbb{C}\)</span> which can be found in various texts, because we would like to apply these functions to physical equations first.</p>
 </div>
 </section>
 </section>
