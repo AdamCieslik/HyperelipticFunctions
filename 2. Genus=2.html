@@ -1017,19 +1017,19 @@ J Matrix:
 <div class="math notranslate nohighlight">
 \[\begin{split}    [\mathcal{A}_{i,0}] = 
         \begin{pmatrix}
-            \mathbf{\epsilon'}_i^T\\
-            \mathbf{\epsilon}_i^T
+            \mathbf{\varepsilon'}_i^T\\
+            \mathbf{\varepsilon}_i^T
         \end{pmatrix} =
         \begin{pmatrix}
-            \epsilon'_{i,1} &amp; \ldots &amp; \epsilon'_{i,g} \\
-            \epsilon_{i,1} &amp; \ldots &amp;\epsilon_{i,g}
+            \varepsilon'_{i,1} &amp; \ldots &amp; \varepsilon'_{i,g} \\
+            \varepsilon_{i,1} &amp; \ldots &amp;\varepsilon_{i,g}
         \end{pmatrix}.\end{split}\]</div>
 <p>For <span class="math notranslate nohighlight">\(g=2\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}    [\mathcal{A}_{i,0}] = 
         \begin{pmatrix}
-            \epsilon'_{i,1} &amp; \epsilon'_{i,2} \\
-            \epsilon_{i,1} &amp; \epsilon_{i,2}
+            \varepsilon'_{i,1} &amp; \varepsilon'_{i,2} \\
+            \varepsilon_{i,1} &amp; \varepsilon_{i,2}
         \end{pmatrix}\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1333,7 +1333,9 @@ J Matrix:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Theta with characteristic:
- 1.0600858517074845 - 0.2501023731212625*I
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1.0600858517074845 - 0.2501023731212625*I
 
 Exponential factor:
  0.5734712442681018 + 0.050148801540618036*I
@@ -1403,6 +1405,26 @@ The relation is verified within the given tolerance.
 </div>
 </div>
 </div>
+<p>Sigma derivatives:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sigma1</span>
+<span class="k">def</span> <span class="nf">Tsigma1</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">U1</span><span class="p">,</span> <span class="n">U3</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;U1 U3&#39;</span><span class="p">)</span>
+    <span class="n">sigma_expr</span> <span class="o">=</span> <span class="n">Tsigma</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">)</span>
+    <span class="n">sigma1</span> <span class="o">=</span><span class="n">diff</span> <span class="p">(</span><span class="n">sigma_expr</span><span class="p">,</span> <span class="n">U1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sigma1</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+
+<span class="c1"># sigma3</span>
+<span class="k">def</span> <span class="nf">Tsigma3</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
+    <span class="n">U1</span><span class="p">,</span> <span class="n">U3</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;U1 U3&#39;</span><span class="p">)</span>
+    <span class="n">sigma_expr</span> <span class="o">=</span> <span class="n">Tsigma</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">)</span>
+    <span class="n">sigma3</span> <span class="o">=</span><span class="n">diff</span> <span class="p">(</span><span class="n">sigma_expr</span><span class="p">,</span> <span class="n">U3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sigma3</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="bolza-formula">
 <h3><span class="section-number">2.7.1. </span>Bolza formula<a class="headerlink" href="#bolza-formula" title="Link to this heading">#</a></h3>
 <div class="proof definition admonition" id="sigma_app1_df">
@@ -1432,6 +1454,9 @@ The relation is verified within the given tolerance.
 
 <span class="n">epsp5</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">eChars</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">eps5</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">eChars</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">epsp6</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">eChars</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">eps6</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">eChars</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1443,6 +1468,7 @@ The relation is verified within the given tolerance.
 <span class="n">up3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">eps3</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omegaP</span><span class="o">*</span><span class="n">epsp3</span>
 <span class="n">up4</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">eps4</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omegaP</span><span class="o">*</span><span class="n">epsp4</span>
 <span class="n">up5</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">eps5</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omegaP</span><span class="o">*</span><span class="n">epsp5</span>
+<span class="n">up6</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">eps6</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omegaP</span><span class="o">*</span><span class="n">epsp6</span>
 </pre></div>
 </div>
 </div>
@@ -1451,12 +1477,10 @@ The relation is verified within the given tolerance.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ei</span>
 <span class="k">def</span> <span class="nf">e</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
-    <span class="n">U1</span><span class="p">,</span> <span class="n">U2</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;U1 U3&#39;</span><span class="p">)</span>
-    <span class="n">sigma_expr</span> <span class="o">=</span> <span class="n">Tsigma</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">)</span>
-    <span class="n">sigma1</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigma_expr</span><span class="p">,</span> <span class="n">U1</span><span class="p">)</span>
-    <span class="n">sigma3</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigma_expr</span><span class="p">,</span> <span class="n">U3</span><span class="p">)</span>
-    <span class="n">symbolic_expr</span> <span class="o">=</span> <span class="o">-</span><span class="n">sigma3</span><span class="o">/</span><span class="n">sigma1</span>
-    <span class="k">return</span> <span class="n">symbolic_expr</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
+    <span class="n">sigma1</span> <span class="o">=</span> <span class="n">Tsigma1</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">)</span>
+    <span class="n">sigma3</span> <span class="o">=</span> <span class="n">Tsigma3</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">)</span>
+    <span class="n">expr</span> <span class="o">=</span> <span class="o">-</span><span class="n">sigma3</span><span class="o">/</span><span class="n">sigma1</span>
+    <span class="k">return</span> <span class="n">expr</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1468,17 +1492,19 @@ The relation is verified within the given tolerance.
       <span class="n">e</span><span class="p">(</span><span class="n">up2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">up2</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> 
       <span class="n">e</span><span class="p">(</span><span class="n">up3</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">up3</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> 
       <span class="n">e</span><span class="p">(</span><span class="n">up4</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">up4</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> 
-      <span class="n">e</span><span class="p">(</span><span class="n">up5</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">up5</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+      <span class="n">e</span><span class="p">(</span><span class="n">up5</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">up5</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+      <span class="n">e</span><span class="p">(</span><span class="n">up6</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">up6</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Branch points from Bolza formula:
--1.05264146874943 - 4.34176838933187e-16*I
+-1.05264146874943 - 5.55111512312578e-16*I
 0.695037784917798 + 1.04164546422316*I
--11.8251161409668 - 4.33650206903357e-14*I
+-11.8251161409668 - 4.34097202628436e-14*I
 2.53231492223134e15 - 6.84742393413673e15*I
 0.695037784917799 - 1.04164546422316*I
+-0.512317960119317
 </pre></div>
 </div>
 </div>
@@ -1504,22 +1530,16 @@ The relation is verified within the given tolerance.
 <p>Ok, let’s see how the <span class="math notranslate nohighlight">\(\sigma_i\)</span> functions behave at the points <span class="math notranslate nohighlight">\(up_4\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_sigma_values</span><span class="p">(</span><span class="n">u1_val</span><span class="p">,</span> <span class="n">u3_val</span><span class="p">):</span>
-    <span class="n">U1</span><span class="p">,</span> <span class="n">U3</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;U1 U3&#39;</span><span class="p">)</span>
-    <span class="n">sigma_expr</span> <span class="o">=</span> <span class="n">Tsigma</span><span class="p">(</span><span class="n">U1</span><span class="p">,</span> <span class="n">U3</span><span class="p">)</span>
-    <span class="n">sigma1</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigma_expr</span><span class="p">,</span> <span class="n">U1</span><span class="p">)</span>
-    <span class="n">sigma3</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">sigma_expr</span><span class="p">,</span> <span class="n">U3</span><span class="p">)</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sigma1:&quot;</span><span class="p">,</span> <span class="n">sigma1</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sigma3:&quot;</span><span class="p">,</span> <span class="n">sigma3</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">U1</span><span class="p">:</span> <span class="n">u1_val</span><span class="p">,</span> <span class="n">U3</span><span class="p">:</span> <span class="n">u3_val</span><span class="p">})</span><span class="o">.</span><span class="n">n</span><span class="p">())</span>
-
-<span class="n">check_sigma_values</span><span class="p">(</span><span class="n">up4</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">up4</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sigma1:&quot;</span><span class="p">,</span> <span class="n">Tsigma1</span><span class="p">(</span><span class="n">up4</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">up4</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sigma3:&quot;</span><span class="p">,</span> <span class="n">Tsigma3</span><span class="p">(</span><span class="n">up4</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">up4</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma1: 1.23432198410658e-15 + 3.52430396044750e-15*I
-sigma3: -27.2580952691324 - 0.472721613117690*I
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma3: -27.2580952691324 - 0.472721613117690*I
 </pre></div>
 </div>
 </div>
@@ -1529,12 +1549,126 @@ sigma3: -27.2580952691324 - 0.472721613117690*I
 <section class="observation-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\(\sigma_1\)</span>=0 so <span class="math notranslate nohighlight">\(up4\)</span> is a special divisor</p>
 </section>
-</div><div class="proof observation admonition" id="observation-6">
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Branch points:&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">branch_points</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Branch points:
+-11.8251161409669
+-1.05264146874943
+-0.512317960119317
+0.695037784917798 - 1.04164546422316*I
+0.695037784917798 + 1.04164546422316*I
++Infinity
+</pre></div>
+</div>
+</div>
+</div>
+<div class="proof observation admonition" id="observation-6">
 <p class="admonition-title"><span class="caption-number">Observation 2.2 </span></p>
 <section class="observation-content" id="proof-content">
-<p>The order of the elements should be the same.</p>
+<p>The order of the elements should be the same. The order of branch points could be wrong because you use the argument <span class="math notranslate nohighlight">\(u[\varepsilon]\)</span> instead of <span class="math notranslate nohighlight">\(u[\varepsilon-K]\)</span>. Based on the discussion <a href="https://community.wolfram.com/groups/-/m/t/3296279" target="_blank">[13]</a> in Wolfram community about the vector of Riemann constants fora a computed characteristic <span class="math notranslate nohighlight">\([\varepsilon]\)</span>, before appling the shift by <span class="math notranslate nohighlight">\([K]\)</span> we check wheather</p>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-28">
+<span class="eqno">(2.29)<a class="headerlink" href="#equation-2-genus-2-28" title="Link to this equation">#</a></span>\[        \sigma(u[K]) =0 \;\; \text{and} \;\; \sigma_1(u[K]) =0. \]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-29">
+<span class="eqno">(2.30)<a class="headerlink" href="#equation-2-genus-2-29" title="Link to this equation">#</a></span>\[\begin{split}    u_\iota=
+            \frac{1}{2}\omega 
+                \begin{pmatrix}
+                    K_{1,1}\\
+                    K_{2,1}
+                \end{pmatrix}  + 
+            \frac{1}{2}\omega' 
+                \begin{pmatrix}
+                    K_{1,2}\\
+                    K_{2,2}
+                \end{pmatrix} \end{split}\]</div>
 </section>
-</div></section>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vK1</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">KCh</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">vK2</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">KCh</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">uK</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">vK1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omegaP</span><span class="o">*</span><span class="n">vK2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sigma(u[K])=&quot;</span><span class="p">,</span><span class="n">Tsigma</span><span class="p">(</span><span class="n">uK</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">uK</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sigma1(u[K])=&quot;</span><span class="p">,</span><span class="n">Tsigma1</span><span class="p">(</span><span class="n">uK</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">uK</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma(u[K])= 4.168869563487747e-16 + 4.900022606845388e-16*I
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma1(u[K])= 1.23432198410658e-15 + 3.52430396044750e-15*I
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s check <span class="math notranslate nohighlight">\(u\)</span> vectors with shifted characteristic:</p>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-30">
+<span class="eqno">(2.31)<a class="headerlink" href="#equation-2-genus-2-30" title="Link to this equation">#</a></span>\[    [\tilde{\varepsilon_\iota}]=[\varepsilon_\iota + K] = \left( [\varepsilon_\iota] + [K] \right)\pmod{2}\]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-31">
+<span class="eqno">(2.32)<a class="headerlink" href="#equation-2-genus-2-31" title="Link to this equation">#</a></span>\[    \tilde{u}_\iota=\frac{1}{2}\omega \tilde{\varepsilon_\iota} + \frac{1}{2} \omega'  \tilde{\varepsilon_\iota}'\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#up shifted</span>
+<span class="n">sChar1</span> <span class="o">=</span> <span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="n">eChars</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">KCh</span><span class="p">)</span><span class="o">%</span><span class="k">2</span>
+<span class="n">sepsp1</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">sChar1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">seps1</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">sChar1</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">sChar2</span> <span class="o">=</span> <span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="n">eChars</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">KCh</span><span class="p">)</span><span class="o">%</span><span class="k">2</span>
+<span class="n">sepsp2</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">sChar2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">seps2</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">sChar2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">sChar3</span> <span class="o">=</span> <span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="n">eChars</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="n">KCh</span><span class="p">)</span><span class="o">%</span><span class="k">2</span>
+<span class="n">sepsp3</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">sChar3</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">seps3</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">sChar3</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">sChar4</span> <span class="o">=</span> <span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="n">eChars</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">+</span> <span class="n">KCh</span><span class="p">)</span><span class="o">%</span><span class="k">2</span>
+<span class="n">sepsp4</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">sChar4</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">seps4</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">sChar4</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">sChar5</span> <span class="o">=</span> <span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="n">eChars</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span> <span class="o">+</span> <span class="n">KCh</span><span class="p">)</span><span class="o">%</span><span class="k">2</span>
+<span class="n">sepsp5</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">sChar5</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">seps5</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">sChar5</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">sChar6</span> <span class="o">=</span> <span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="n">eChars</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span> <span class="o">+</span> <span class="n">KCh</span><span class="p">)</span><span class="o">%</span><span class="k">2</span>
+<span class="n">sepsp6</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">sChar5</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">seps6</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">sChar5</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">ups1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">seps1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omegaP</span><span class="o">*</span><span class="n">sepsp1</span>
+<span class="n">ups2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">seps2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omegaP</span><span class="o">*</span><span class="n">sepsp2</span>
+<span class="n">ups3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">seps3</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omegaP</span><span class="o">*</span><span class="n">sepsp3</span>
+<span class="n">ups4</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">seps4</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omegaP</span><span class="o">*</span><span class="n">sepsp4</span>
+<span class="n">ups5</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">seps5</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omegaP</span><span class="o">*</span><span class="n">sepsp5</span>
+<span class="n">ups6</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omega</span><span class="o">*</span><span class="n">seps6</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">omegaP</span><span class="o">*</span><span class="n">sepsp6</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Branch points from Bolza formula with u[epsilon+K]:&quot;</span><span class="p">,</span> 
+      <span class="n">e</span><span class="p">(</span><span class="n">ups1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ups1</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> 
+      <span class="n">e</span><span class="p">(</span><span class="n">ups2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ups2</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> 
+      <span class="n">e</span><span class="p">(</span><span class="n">ups3</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ups3</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> 
+      <span class="n">e</span><span class="p">(</span><span class="n">ups4</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ups4</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> 
+      <span class="n">e</span><span class="p">(</span><span class="n">ups5</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ups5</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> 
+      <span class="n">e</span><span class="p">(</span><span class="n">ups6</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ups6</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Branch points from Bolza formula with u[epsilon+K]:
+-0.431121078698602 + 0.424863540601260*I
+2.53231492223134e15 - 6.84742393413673e15*I
+-33.5168254120767 + 12.1374912809649*I
+0.695037784917798 + 1.04164546422316*I
+0.258106930440267 + 2.91433543964104e-16*I
+0.258106930440267 + 2.91433543964104e-16*I
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="wp-functions">
 <h2><span class="section-number">2.8. </span><span class="math notranslate nohighlight">\(\wp\)</span>-Functions<a class="headerlink" href="#wp-functions" title="Link to this heading">#</a></h2>
@@ -1542,15 +1676,15 @@ sigma3: -27.2580952691324 - 0.472721613117690*I
 <p class="admonition-title"><span class="caption-number">Definition 2.6 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Multiply periodic Klein-Weierstrass <span class="math notranslate nohighlight">\(\wp\)</span>-functions are defined by</p>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-28">
-<span class="eqno">(2.29)<a class="headerlink" href="#equation-2-genus-2-28" title="Link to this equation">#</a></span>\[    \wp_{ij}(\mathbf{u}):= - \frac{\partial^2\log{\sigma(\mathbf{u})}}{\partial u_i \partial u_j}, \quad \wp_{ijk}:=- \frac{\partial^3\log{\sigma(\mathbf{u})}}{\partial u_i \partial u_j \partial u_k},\]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-32">
+<span class="eqno">(2.33)<a class="headerlink" href="#equation-2-genus-2-32" title="Link to this equation">#</a></span>\[    \wp_{ij}(\mathbf{u}):= - \frac{\partial^2\log{\sigma(\mathbf{u})}}{\partial u_i \partial u_j}, \quad \wp_{ijk}:=- \frac{\partial^3\log{\sigma(\mathbf{u})}}{\partial u_i \partial u_j \partial u_k},\]</div>
 <p>where <span class="math notranslate nohighlight">\(\sigma(u)\)</span> is called <i>sigma function</i>. This can be also written by</p>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-29">
-<span class="eqno">(2.30)<a class="headerlink" href="#equation-2-genus-2-29" title="Link to this equation">#</a></span>\[    \wp_{ij} = \frac{\sigma_i(\mathbf{u})\sigma_j(\mathbf{u}) - \sigma(\mathbf{u})\sigma_{ij}(\mathbf{u})}{\sigma^2(\mathbf{u})} = \frac{\tilde{\sigma}_i(\mathbf{u})\tilde{\sigma}_j(\mathbf{u}) - \tilde{\sigma}(\mathbf{u})\tilde{\sigma}_{ij}(\mathbf{u})}{\tilde{\sigma}^2(\mathbf{u})},\]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-33">
+<span class="eqno">(2.34)<a class="headerlink" href="#equation-2-genus-2-33" title="Link to this equation">#</a></span>\[    \wp_{ij} = \frac{\sigma_i(\mathbf{u})\sigma_j(\mathbf{u}) - \sigma(\mathbf{u})\sigma_{ij}(\mathbf{u})}{\sigma^2(\mathbf{u})} = \frac{\tilde{\sigma}_i(\mathbf{u})\tilde{\sigma}_j(\mathbf{u}) - \tilde{\sigma}(\mathbf{u})\tilde{\sigma}_{ij}(\mathbf{u})}{\tilde{\sigma}^2(\mathbf{u})},\]</div>
 <p>where <span class="math notranslate nohighlight">\(\sigma_i(\mathbf{u})\)</span> denotes the derivative of the sigma function with respect to the <span class="math notranslate nohighlight">\(i\)</span>-th component of <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>.</p>
 <p>It can be shown that the above definitions can be written in the form</p>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-30">
-<span class="eqno">(2.31)<a class="headerlink" href="#equation-2-genus-2-30" title="Link to this equation">#</a></span>\[    \wp_{ij}:=\kappa_{ij} - \frac{\partial^2}{\partial u_i \partial u_j}\log{\theta[K](\omega^{-1}u;\tau)}, \quad \wp_{ijk}:=- \frac{\partial^3}{\partial u_i \partial u_j \partial u_k}\log{\theta[K](\omega^{-1}u;\tau)}.\]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-34">
+<span class="eqno">(2.35)<a class="headerlink" href="#equation-2-genus-2-34" title="Link to this equation">#</a></span>\[    \wp_{ij}:=\kappa_{ij} - \frac{\partial^2}{\partial u_i \partial u_j}\log{\theta[K](\omega^{-1}u;\tau)}, \quad \wp_{ijk}:=- \frac{\partial^3}{\partial u_i \partial u_j \partial u_k}\log{\theta[K](\omega^{-1}u;\tau)}.\]</div>
 </section>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1593,11 +1727,11 @@ sigma3: -27.2580952691324 - 0.472721613117690*I
 <section id="id6">
 <h3><span class="section-number">2.8.1. </span>Tests<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>As a first test of these functions, we can check if they satisfy the key property</p>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-31">
-<span class="eqno">(2.32)<a class="headerlink" href="#equation-2-genus-2-31" title="Link to this equation">#</a></span>\[    \wp_{ij}(\mathbf{u}+2\omega \mathbf{n} + 2\omega'\mathbf{n}') = \wp_{ij}(\mathbf{u}),\]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-35">
+<span class="eqno">(2.36)<a class="headerlink" href="#equation-2-genus-2-35" title="Link to this equation">#</a></span>\[    \wp_{ij}(\mathbf{u}+2\omega \mathbf{n} + 2\omega'\mathbf{n}') = \wp_{ij}(\mathbf{u}),\]</div>
 <p>where</p>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-32">
-<span class="eqno">(2.33)<a class="headerlink" href="#equation-2-genus-2-32" title="Link to this equation">#</a></span>\[\begin{split}    \mathbf{n} = 
+<div class="math notranslate nohighlight" id="equation-2-genus-2-36">
+<span class="eqno">(2.37)<a class="headerlink" href="#equation-2-genus-2-36" title="Link to this equation">#</a></span>\[\begin{split}    \mathbf{n} = 
         \begin{pmatrix}
             n_1\\
             n_2
@@ -1659,8 +1793,8 @@ Test P33:
 <p class="admonition-title"><span class="caption-number">Definition 2.7 </span></p>
 <section class="definition-content" id="proof-content">
 <p>The following formula cames from <span id="id7">[<a class="reference internal" href="#id24" title="Julia Bernatska. Reality conditions for the KdV equation and exact quasi-periodic solutions in finite phase spaces. Journal of Geometry and Physics, 206:105322, December 2024. URL: https://linkinghub.elsevier.com/retrieve/pii/S0393044024002237 (visited on 2024-10-28), doi:10.1016/j.geomphys.2024.105322.">4</a>]</span> (Eq. 44)  - this is KdV equation</p>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-33">
-<span class="eqno">(2.34)<a class="headerlink" href="#equation-2-genus-2-33" title="Link to this equation">#</a></span>\[    \wp_{1111} = 6\wp^2_{11} +  4\lambda_2 \wp_{11} + 4 \wp_{13} + 2 \lambda_4 \]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-37">
+<span class="eqno">(2.38)<a class="headerlink" href="#equation-2-genus-2-37" title="Link to this equation">#</a></span>\[    \wp_{1111} = 6\wp^2_{11} +  4\lambda_2 \wp_{11} + 4 \wp_{13} + 2 \lambda_4 \]</div>
 </section>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1686,7 +1820,7 @@ Test P33:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>634.524660261420 - 3.72324393538292e-12*I
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>634.524660261420 - 3.60955709766131e-12*I
 </pre></div>
 </div>
 </div>
@@ -1698,7 +1832,7 @@ Test P33:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.93267624126747e-12 - 2.84270247117812e-12*I
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.81898940354586e-12 - 2.72901563345651e-12*I
 </pre></div>
 </div>
 </div>
@@ -1733,11 +1867,11 @@ Test P33:
 <p class="admonition-title"><span class="caption-number">Definition 2.8 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Based on <span id="id8">[<a class="reference internal" href="#id19" title="Inversion of a general hyperelliptic integral and particle motion in Hořava–Lifshitz black hole space-times \textbar  Journal of Mathematical Physics \textbar  AIP Publishing. URL: https://pubs.aip.org/aip/jmp/article-abstract/53/1/012504/232886/Inversion-of-a-general-hyperelliptic-integral-and?redirectedFrom=fulltext (visited on 2024-10-17).">3</a>]</span> (5.10-13) let’s take</p>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-34">
-<span class="eqno">(2.35)<a class="headerlink" href="#equation-2-genus-2-34" title="Link to this equation">#</a></span>\[    \Omega_{ij} = \frac{1}{2} \omega (\epsilon_i + \epsilon_j) +  \frac{1}{2} \omega' (\epsilon'_i + \epsilon'_j),\]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-38">
+<span class="eqno">(2.39)<a class="headerlink" href="#equation-2-genus-2-38" title="Link to this equation">#</a></span>\[    \Omega_{ij} = \frac{1}{2} \omega (\epsilon_i + \epsilon_j) +  \frac{1}{2} \omega' (\epsilon'_i + \epsilon'_j),\]</div>
 <p>then</p>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-35">
-<span class="eqno">(2.36)<a class="headerlink" href="#equation-2-genus-2-35" title="Link to this equation">#</a></span>\[    \wp_{11}(\Omega_{ij}) = e_i + e_j, \quad \wp_{13}(\Omega_{ij}) = -e_i e_j,  \quad i,j=1,\ldots,5, \; i\neq j\]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-39">
+<span class="eqno">(2.40)<a class="headerlink" href="#equation-2-genus-2-39" title="Link to this equation">#</a></span>\[    \wp_{11}(\Omega_{ij}) = e_i + e_j, \quad \wp_{13}(\Omega_{ij}) = -e_i e_j,  \quad i,j=1,\ldots,5, \; i\neq j\]</div>
 </section>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1783,10 +1917,10 @@ Test P33:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(Omega12)= 8.21890252901329 - 12.3175785921502*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>From theory: -e1*e2= 0.731625594752220 + 1.09647921137605*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>From theory: -e1*e2= 0.731625594752219 + 1.09647921137605*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>From practice: -e3*e5= 8.21890252901333 - 12.3175785921502*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>From practice: -e3*e5= 8.21890252901334 - 12.3175785921502*I
 </pre></div>
 </div>
 </div>
@@ -1803,7 +1937,7 @@ Test P33:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega13)= 1.39007556983559 + 9.15933995315754e-15*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>From theory: e1+e3= -12.8777576097163 - 4.37991975292688e-14*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>From theory: e1+e3= -12.8777576097163 - 4.39648317751562e-14*I
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>From practice: e2+e5= 1.39007556983560 - 6.66133814775094e-16*I
@@ -1844,9 +1978,9 @@ Test P33:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Branch points from Bolza formula:
--1.05264146874943 - 4.34176838933187e-16*I
+-1.05264146874943 - 5.55111512312578e-16*I
 0.695037784917798 + 1.04164546422316*I
--11.8251161409668 - 4.33650206903357e-14*I
+-11.8251161409668 - 4.34097202628436e-14*I
 2.53231492223134e15 - 6.84742393413673e15*I
 0.695037784917799 - 1.04164546422316*I
 </pre></div>
@@ -1877,15 +2011,15 @@ Test P33:
 <section id="jacobi-inversion-problem-on-branch-points">
 <h2><span class="section-number">2.9. </span>Jacobi inversion problem on branch points<a class="headerlink" href="#jacobi-inversion-problem-on-branch-points" title="Link to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\mathbf{u}=\mathcal{A}(D)\)</span> be the Abel image of a degree g positive non-special divisor <span class="math notranslate nohighlight">\(D\)</span> on the curve. Then <span class="math notranslate nohighlight">\(D\)</span> is uniquely defined by the system of equations:</p>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-36">
-<span class="eqno">(2.37)<a class="headerlink" href="#equation-2-genus-2-36" title="Link to this equation">#</a></span>\[        \mathcal{R}_{2g}(x;\mathbf{u}) = x^g - \sum_{i=1}^g x^{g-1} \wp_{1,2i-1}(\mathbf{u}) =0,\]</div>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-37">
-<span class="eqno">(2.38)<a class="headerlink" href="#equation-2-genus-2-37" title="Link to this equation">#</a></span>\[        \mathcal{R}_{2g+1}(x,y;\mathbf{u}) = 2y + \sum_{i=1}^{g-i} x^{g-1} \wp_{1,1,2i-1}(\mathbf{u}) =0.\]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-40">
+<span class="eqno">(2.41)<a class="headerlink" href="#equation-2-genus-2-40" title="Link to this equation">#</a></span>\[        \mathcal{R}_{2g}(x;\mathbf{u}) = x^g - \sum_{i=1}^g x^{g-1} \wp_{1,2i-1}(\mathbf{u}) =0,\]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-41">
+<span class="eqno">(2.42)<a class="headerlink" href="#equation-2-genus-2-41" title="Link to this equation">#</a></span>\[        \mathcal{R}_{2g+1}(x,y;\mathbf{u}) = 2y + \sum_{i=1}^{g-i} x^{g-1} \wp_{1,1,2i-1}(\mathbf{u}) =0.\]</div>
 <p>So in case of <span class="math notranslate nohighlight">\(g=2\)</span>:</p>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-38">
-<span class="eqno">(2.39)<a class="headerlink" href="#equation-2-genus-2-38" title="Link to this equation">#</a></span>\[        \mathcal{R}_4(x;\mathbf{u})=x^2 - x\wp_{11}(\mathbf{u})- \wp_{13}(\mathbf{u})=0,\]</div>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-39">
-<span class="eqno">(2.40)<a class="headerlink" href="#equation-2-genus-2-39" title="Link to this equation">#</a></span>\[        \mathcal{R}_5 (x;\mathbf{u})= 2y + x\wp_{111}(\mathbf{u}) + \wp_{113}(\mathbf{u})=0.\]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-42">
+<span class="eqno">(2.43)<a class="headerlink" href="#equation-2-genus-2-42" title="Link to this equation">#</a></span>\[        \mathcal{R}_4(x;\mathbf{u})=x^2 - x\wp_{11}(\mathbf{u})- \wp_{13}(\mathbf{u})=0,\]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-43">
+<span class="eqno">(2.44)<a class="headerlink" href="#equation-2-genus-2-43" title="Link to this equation">#</a></span>\[        \mathcal{R}_5 (x;\mathbf{u})= 2y + x\wp_{111}(\mathbf{u}) + \wp_{113}(\mathbf{u})=0.\]</div>
 <div class="proof definition admonition" id="divisor_df">
 <p class="admonition-title"><span class="caption-number">Definition 2.9 </span></p>
 <section class="definition-content" id="proof-content">
@@ -1903,14 +2037,14 @@ Test P33:
 <p>On special divisors <span class="math notranslate nohighlight">\(\sigma\)</span>-function vanishes, and so <span class="math notranslate nohighlight">\(\wp\)</span>-functions have singularities.</p>
 </div>
 <p>As a point <span class="math notranslate nohighlight">\(P_i\)</span> we choose</p>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-40">
-<span class="eqno">(2.41)<a class="headerlink" href="#equation-2-genus-2-40" title="Link to this equation">#</a></span>\[    P_i = (x_i,y_i) = (x_i, y_{+}(x_i)),\]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-44">
+<span class="eqno">(2.45)<a class="headerlink" href="#equation-2-genus-2-44" title="Link to this equation">#</a></span>\[    P_i = (x_i,y_i) = (x_i, y_{+}(x_i)),\]</div>
 <p>where <span class="math notranslate nohighlight">\(y_{+}(x) = + \sqrt{y^2(x)}\)</span> (there is second option <span class="math notranslate nohighlight">\(y_{-}(x) = - \sqrt{y^2(x)}\)</span> ).</p>
 <p>In our case let’s take</p>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-41">
-<span class="eqno">(2.42)<a class="headerlink" href="#equation-2-genus-2-41" title="Link to this equation">#</a></span>\[    P_1 = (x_1, y_1)=(1.5,y_{+}(1.5))\]</div>
-<div class="math notranslate nohighlight" id="equation-2-genus-2-42">
-<span class="eqno">(2.43)<a class="headerlink" href="#equation-2-genus-2-42" title="Link to this equation">#</a></span>\[    P_2 = (x_2, y_2)=(3.1,y_{+}(3.1))\]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-45">
+<span class="eqno">(2.46)<a class="headerlink" href="#equation-2-genus-2-45" title="Link to this equation">#</a></span>\[    P_1 = (x_1, y_1)=(1.5,y_{+}(1.5))\]</div>
+<div class="math notranslate nohighlight" id="equation-2-genus-2-46">
+<span class="eqno">(2.47)<a class="headerlink" href="#equation-2-genus-2-46" title="Link to this equation">#</a></span>\[    P_2 = (x_2, y_2)=(3.1,y_{+}(3.1))\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definition of y function </span>
