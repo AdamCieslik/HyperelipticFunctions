@@ -16,19 +16,21 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -39,10 +41,11 @@
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=6a117c68" />
     <link rel="stylesheet" type="text/css" href="_static/css/.ipynb_checkpoints/custom-checkpoint.css" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -65,10 +68,11 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '1. Preliminaries';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. Genus 2 case" href="2.%20Genus%3D2.html" />
+    <link rel="next" title="2. Genus two with real brunch points case" href="2.%20Genus%3D2-realBP.html" />
     <link rel="prev" title="Introduction" href="0.%20Intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -84,19 +88,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -104,7 +97,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -112,8 +104,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -129,7 +121,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -159,21 +152,17 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -186,7 +175,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Preliminaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2.%20Genus%3D2.html">2. Genus 2 case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Genus%3D2-realBP.html">2. Genus two with real brunch points case</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3.%20WithRiemmPack.html">3. Approach with RiemannTheta package</a></li>
 </ul>
 
@@ -196,9 +185,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -242,7 +236,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/AdamCieslik/HyperelipticFunctions" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -259,7 +253,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F1. Preliminaries.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/AdamCieslik/HyperelipticFunctions/issues/new?title=Issue%20on%20page%20%2F1. Preliminaries.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -342,24 +336,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -402,28 +388,28 @@ document.write(`
 <section id="legend">
 <h2><span class="section-number">1.1. </span>Legend<a class="headerlink" href="#legend" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathscr{C}\)</span> - Curve</p></li>
-<li><p><span class="math notranslate nohighlight">\(X\)</span> - Riemann surface</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathscr{C}\)</span> - an algebraic curve</p></li>
+<li><p><span class="math notranslate nohighlight">\(X\)</span> - a Riemann surface</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda_i\)</span> - coefficients of the equation of <span class="math notranslate nohighlight">\(\mathscr{C}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(e_i\)</span> - branch points</p></li>
-<li><p><span class="math notranslate nohighlight">\(w\)</span> - an Abelian differential on the Riemann surface <span class="math notranslate nohighlight">\(X\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(W\)</span> - general Abelian integral</p></li>
-<li><p><span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> - A- and B-periods of the differential <span class="math notranslate nohighlight">\(w=dW\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(du\)</span> - First kind differential</p></li>
-<li><p><span class="math notranslate nohighlight">\(dr\)</span> - Second kind differential</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathfrak{a}_i, \mathfrak{b}_i\)</span> - Canonical homology cycles</p></li>
-<li><p><span class="math notranslate nohighlight">\(\omega\)</span> -  First kind integrals</p></li>
-<li><p><span class="math notranslate nohighlight">\(\eta\)</span> - Second kind integrals</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathcal{A}\)</span> - Abel map</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathfrak{m}(\mathbf{u})\)</span> - A meromorphic function of <span class="math notranslate nohighlight">\(\mathbf{u}\in\mathbb{C}^g\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\Omega\)</span> - Periodic matrices</p></li>
-<li><p><span class="math notranslate nohighlight">\(\Lambda\)</span> - Lattice</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathrm{Jac}(\mathscr{C})\)</span> - Jacobian variety of the curve <span class="math notranslate nohighlight">\(\mathscr{C}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(g\)</span> - a genus of <span class="math notranslate nohighlight">\(\mathscr{C}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(du\)</span> - first kind (or holomorphic) differential on <span class="math notranslate nohighlight">\(\mathscr{C}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(dr\)</span> - second kind differential on <span class="math notranslate nohighlight">\(\mathscr{C}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathfrak{a}_i, \mathfrak{b}_i\)</span> - not normalised canonical homology cycles</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega\)</span> -  first kind integrals (first kind not normalised <span class="math notranslate nohighlight">\(\mathfrak{a}\)</span>, and <span class="math notranslate nohighlight">\(\mathfrak{b}\)</span>-period matrices)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\eta\)</span> - second kind integrals (second kind not normalised <span class="math notranslate nohighlight">\(\mathfrak{a}\)</span>, and <span class="math notranslate nohighlight">\(\mathfrak{b}\)</span>-period matrices)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{Jac}(\mathscr{C}) = \mathbb{C}^g/\{\omega, \omega' \}\)</span> - Jacobian variety of the curve <span class="math notranslate nohighlight">\(\mathscr{C}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(D\)</span> - Divisor  on the Riemann surface <span class="math notranslate nohighlight">\(X\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{A}(P)\)</span>, <span class="math notranslate nohighlight">\(\mathcal{A}(D)\)</span>  - Abel image (or first kind integral) of a point <span class="math notranslate nohighlight">\(P\)</span> and a divisor <span class="math notranslate nohighlight">\(D\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Sigma\)</span> - the theta-divisor defined by <span class="math notranslate nohighlight">\(\{ \mathbf{u}\in \mathrm{Jac}(\mathscr{C})| \sigma(\mathbf{u})=0 \}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathfrak{U}(\mathscr{C})\)</span> - differential field of <span class="math notranslate nohighlight">\(\wp\)</span>-functions on <span class="math notranslate nohighlight">\(\mathrm{Jac}(\mathscr{C}) \setminus \Sigma\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{\varepsilon}\)</span> - a characteristic vectors</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{K}\)</span> - a vector of Riemann constants</p></li>
 </ul>
 </section>
 <section id="hyperelliptic-curve">
 <h2><span class="section-number">1.2. </span>Hyperelliptic curve<a class="headerlink" href="#hyperelliptic-curve" title="Link to this heading">#</a></h2>
-<p>In studies on hyperelliptic functions, various conventions for defining a curve, and consequently the hyperelliptic functions, can be found. In this notebook, we adopt the convention presented in <span id="id1">[<a class="reference internal" href="2.%20Genus%3D2.html#id17" title="Julia Bernatska. Computation of \$\wp\$-functions on plane algebraic curves. July 2024. URL: https://arxiv.org/abs/2407.05632v3 (visited on 2024-10-17).">1</a>]</span></p>
+<p>In studies on hyperelliptic functions, various conventions for defining a curve, and consequently the hyperelliptic functions, can be found. In this notebook, we adopt the convention presented in <span id="id1">[<a class="reference internal" href="3.%20WithRiemmPack.html#id13" title="Julia Bernatska. Computation of \$\wp\$-functions on plane algebraic curves. July 2024. URL: https://arxiv.org/abs/2407.05632v3 (visited on 2024-10-17).">1</a>]</span>, <span id="id2">[<a class="reference internal" href="0.%20Intro.html#id24" title="Julia Bernatska. Abelian function fields on Jacobian varieties. December 2024. arXiv:2412.05455 [math]. URL: http://arxiv.org/abs/2412.05455 (visited on 2025-01-06), doi:10.48550/arXiv.2412.05455.">4</a>]</span>and <span id="id3">[<a class="reference internal" href="2.%20Genus%3D2-realBP.html#id31" title="Julia Bernatska. An analogue of Vélu's formulae in genus two. December 2024. arXiv:2412.10284 [math]. URL: http://arxiv.org/abs/2412.10284 (visited on 2025-01-06), doi:10.48550/arXiv.2412.10284.">4</a>]</span>.</p>
 <p>Additionally, conventions for curves in both general and canonical forms are also discussed in dedicated notebooks: <code class="docutils literal notranslate"><span class="pre">canonical-name.ipynb</span></code> and <code class="docutils literal notranslate"><span class="pre">general-name.ipynb</span></code>. Please refer to these notebooks for further details.</p>
 <div class="proof definition admonition" id="hyperelliptic_curve">
 <p class="admonition-title"><span class="caption-number">Definition 1.1 </span></p>
@@ -482,11 +468,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="2.%20Genus%3D2.html"
+       href="2.%20Genus%3D2-realBP.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Genus 2 case</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Genus two with real brunch points case</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -497,7 +483,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -556,8 +543,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -16,19 +16,21 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -39,10 +41,11 @@
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=6a117c68" />
     <link rel="stylesheet" type="text/css" href="_static/css/.ipynb_checkpoints/custom-checkpoint.css" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -68,6 +71,7 @@
     <link rel="next" title="1. Preliminaries" href="1.%20Preliminaries.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -83,19 +87,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -103,7 +96,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -111,8 +103,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -130,7 +122,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -160,21 +153,17 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -187,7 +176,7 @@
         </ul>
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1.%20Preliminaries.html">1. Preliminaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2.%20Genus%3D2.html">2. Genus 2 case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Genus%3D2-realBP.html">2. Genus two with real brunch points case</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3.%20WithRiemmPack.html">3. Approach with RiemannTheta package</a></li>
 </ul>
 
@@ -197,9 +186,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -243,7 +237,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/AdamCieslik/HyperelipticFunctions" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -260,7 +254,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F0. Intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/AdamCieslik/HyperelipticFunctions/issues/new?title=Issue%20on%20page%20%2F0. Intro.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -343,24 +337,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -399,28 +385,40 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
 <p>Kleinian functions, also known as the generalised Wierstrass <span class="math notranslate nohighlight">\(\wp_{ij}\)</span> functions, are important tools for studying hyperelliptic curves. The main objective of this notebook is to present code that can compute Kleinian functions for a hyperelliptic curve of genus 2.  While the primary focus is on the computation aspect, related concepts and background information are provided for context.</p>
-<p>This notebook is based on the work of Julia Bernatska <span id="id1">[<a class="reference internal" href="2.%20Genus%3D2.html#id17" title="Julia Bernatska. Computation of \$\wp\$-functions on plane algebraic curves. July 2024. URL: https://arxiv.org/abs/2407.05632v3 (visited on 2024-10-17).">1</a>]</span> and the code attached to an article posted on WolframCommunity <span id="id2">[<a class="reference internal" href="#id5" title="Uniformization of a genus 4 hyperelliptic curve with arbitrary complex branch points - Online Technical Discussion Groups—Wolfram Community. URL: https://community.wolfram.com/groups/-/m/t/3243472 (visited on 2024-10-17).">2</a>]</span>. It also draws from the SageMath Riemann surfaces documentation <em>SageMath Riemann surfaces</em> documentation <span id="id3">[<a class="reference internal" href="#id6" title="Riemann matrices and endomorphism rings of algebraic Riemann surfaces - Plane and Space Curves. URL: https://doc.sagemath.org/html/en/reference/curves/sage/schemes/riemann_surfaces/riemann_surface.html#sage.schemes.riemann_surfaces.riemann_surface.RiemannSurface (visited on 2024-10-17).">3</a>]</span>. All additional references are listed in the Literature section at the end of the notebook.</p>
+<p>This notebook is mainly inspired by the work of Julia Bernatska <span id="id1">[<a class="reference internal" href="2.%20Genus%3D2-realBP.html#id20" title="Julia Bernatska. Computation of \$\wp\$-functions on plane algebraic curves. July 2024. URL: https://arxiv.org/abs/2407.05632v3 (visited on 2024-10-17).">1</a>]</span> and the code attached to an article posted on WolframCommunity <span id="id2">[<a class="reference internal" href="2.%20Genus%3D2-realBP.html#id14" title="Uniformization of a genus 4 hyperelliptic curve with arbitrary complex branch points - Online Technical Discussion Groups—Wolfram Community. URL: https://community.wolfram.com/groups/-/m/t/3243472 (visited on 2024-10-17).">2</a>]</span>. It also draws from the works of <span id="id3">[<a class="reference internal" href="2.%20Genus%3D2-realBP.html#id26" title="V.Z. Enolski, E. Hackmann, V. Kagramanova, J. Kunz, and C. Lämmerzahl. Inversion of hyperelliptic integrals of arbitrary genus with application to particle motion in general relativity. Journal of Geometry and Physics, 61(5):899–921, May 2011. URL: https://linkinghub.elsevier.com/retrieve/pii/S0393044011000027 (visited on 2024-10-28), doi:10.1016/j.geomphys.2011.01.001.">3</a>]</span>, <span id="id4">[<a class="reference internal" href="#id24" title="Julia Bernatska. Abelian function fields on Jacobian varieties. December 2024. arXiv:2412.05455 [math]. URL: http://arxiv.org/abs/2412.05455 (visited on 2025-01-06), doi:10.48550/arXiv.2412.05455.">4</a>]</span>, <span id="id5">[<a class="reference internal" href="2.%20Genus%3D2-realBP.html#id31" title="Julia Bernatska. An analogue of Vélu's formulae in genus two. December 2024. arXiv:2412.10284 [math]. URL: http://arxiv.org/abs/2412.10284 (visited on 2025-01-06), doi:10.48550/arXiv.2412.10284.">4</a>]</span>, and others referenced in later sections. Additionally, it references the SageMath Riemann surfaces documentation <em>SageMath Riemann surfaces</em> documentation <span id="id6">[<a class="reference internal" href="#id9" title="Riemann matrices and endomorphism rings of algebraic Riemann surfaces - Plane and Space Curves. URL: https://doc.sagemath.org/html/en/reference/curves/sage/schemes/riemann_surfaces/riemann_surface.html#sage.schemes.riemann_surfaces.riemann_surface.RiemannSurface (visited on 2024-10-17).">6</a>]</span>. All additional references are listed in the Literature section at the end of the notebook.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="1.%20Preliminaries.html">1. Preliminaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2.%20Genus%3D2.html">2. Genus 2 case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Genus%3D2-realBP.html">2. Genus two with real brunch points case</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3.%20WithRiemmPack.html">3. Approach with RiemannTheta package</a></li>
 </ul>
 </div>
 <section id="bibliography">
 <h2>Bibliography<a class="headerlink" href="#bibliography" title="Link to this heading">#</a></h2>
-<div class="docutils container" id="id4">
+<div class="docutils container" id="id7">
 <div role="list" class="citation-list">
-<div class="citation" id="id11" role="doc-biblioentry">
+<div class="citation" id="id14" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Julia Bernatska. Computation of \$\wp\$-functions on plane algebraic curves. July 2024. URL: <a class="reference external" href="https://arxiv.org/abs/2407.05632v3">https://arxiv.org/abs/2407.05632v3</a> (visited on 2024-10-17).</p>
 </div>
-<div class="citation" id="id5" role="doc-biblioentry">
+<div class="citation" id="id8" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>Uniformization of a genus 4 hyperelliptic curve with arbitrary complex branch points - Online Technical Discussion Groups—Wolfram Community. URL: <a class="reference external" href="https://community.wolfram.com/groups/-/m/t/3243472">https://community.wolfram.com/groups/-/m/t/3243472</a> (visited on 2024-10-17).</p>
 </div>
-<div class="citation" id="id6" role="doc-biblioentry">
+<div class="citation" id="id20" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>V.Z. Enolski, E. Hackmann, V. Kagramanova, J. Kunz, and C. Lämmerzahl. Inversion of hyperelliptic integrals of arbitrary genus with application to particle motion in general relativity. <em>Journal of Geometry and Physics</em>, 61(5):899–921, May 2011. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0393044011000027">https://linkinghub.elsevier.com/retrieve/pii/S0393044011000027</a> (visited on 2024-10-28), <a class="reference external" href="https://doi.org/10.1016/j.geomphys.2011.01.001">doi:10.1016/j.geomphys.2011.01.001</a>.</p>
+</div>
+<div class="citation" id="id24" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>Julia Bernatska. Abelian function fields on Jacobian varieties. December 2024. arXiv:2412.05455 [math]. URL: <a class="reference external" href="http://arxiv.org/abs/2412.05455">http://arxiv.org/abs/2412.05455</a> (visited on 2025-01-06), <a class="reference external" href="https://doi.org/10.48550/arXiv.2412.05455">doi:10.48550/arXiv.2412.05455</a>.</p>
+</div>
+<div class="citation" id="id25" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p>Julia Bernatska. An analogue of Vélu's formulae in genus two. December 2024. arXiv:2412.10284 [math]. URL: <a class="reference external" href="http://arxiv.org/abs/2412.10284">http://arxiv.org/abs/2412.10284</a> (visited on 2025-01-06), <a class="reference external" href="https://doi.org/10.48550/arXiv.2412.10284">doi:10.48550/arXiv.2412.10284</a>.</p>
+</div>
+<div class="citation" id="id9" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
 <p>Riemann matrices and endomorphism rings of algebraic Riemann surfaces - Plane and Space Curves. URL: <a class="reference external" href="https://doc.sagemath.org/html/en/reference/curves/sage/schemes/riemann_surfaces/riemann_surface.html#sage.schemes.riemann_surfaces.riemann_surface.RiemannSurface">https://doc.sagemath.org/html/en/reference/curves/sage/schemes/riemann_surfaces/riemann_surface.html#sage.schemes.riemann_surfaces.riemann_surface.RiemannSurface</a> (visited on 2024-10-17).</p>
 </div>
 </div>
@@ -474,7 +472,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -532,8 +531,8 @@ By The Jupyter Book Community
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
