@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3. Genus two with real brunch points case &#8212; My sample book</title>
+    <title>3. Genus two with real coefficients &#8212; My sample book</title>
   
   
   
@@ -68,7 +68,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '3. Genus=2-realCoeff';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="2. Genus two with real coefficients" href="2.%20Genus%3D2-realBP.html" />
+    <link rel="prev" title="2. Genus two with real brunch points case" href="2.%20Genus%3D2-realBP.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -174,8 +174,8 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1.%20Preliminaries.html">1. Preliminaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2.%20Genus%3D2-realBP.html">2. Genus two with real coefficients</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Genus two with real brunch points case</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Genus%3D2-realBP.html">2. Genus two with real brunch points case</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Genus two with real coefficients</a></li>
 </ul>
 
     </div>
@@ -358,7 +358,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Genus two with real brunch points case</h1>
+    <h1>Genus two with real coefficients</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -411,8 +411,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="genus-two-with-real-brunch-points-case">
-<h1><span class="section-number">3. </span>Genus two with real brunch points case<a class="headerlink" href="#genus-two-with-real-brunch-points-case" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="genus-two-with-real-coefficients">
+<h1><span class="section-number">3. </span>Genus two with real coefficients<a class="headerlink" href="#genus-two-with-real-coefficients" title="Link to this heading">#</a></h1>
 <p>So for a curve of genus <span class="math notranslate nohighlight">\(g=2\)</span> we get</p>
 <div class="math notranslate nohighlight" id="equation-3-genus-2-realcoeff-0">
 <span class="eqno">(3.1)<a class="headerlink" href="#equation-3-genus-2-realcoeff-0" title="Link to this equation">#</a></span>\[    f(x,y) = -y^2 + x^5 + \lambda_2 x^4 + \lambda_4 x^3+ \lambda_6 x^2+ \lambda_8 x+ \lambda_{10},\]</div>
@@ -427,11 +427,11 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Defines the lambda coefficients</span>
-<span class="n">lambda2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
-<span class="n">lambda4</span> <span class="o">=</span> <span class="o">-</span><span class="mf">43.0</span>
-<span class="n">lambda6</span>  <span class="o">=</span> <span class="mf">1.0</span>
-<span class="n">lambda8</span>  <span class="o">=</span> <span class="mf">402.0</span>
-<span class="n">lambda10</span>  <span class="o">=</span> <span class="mf">360.0</span>
+<span class="n">lambda2</span> <span class="o">=</span> <span class="mf">12.0</span>
+<span class="n">lambda4</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">lambda6</span>  <span class="o">=</span> <span class="mf">0.9</span>
+<span class="n">lambda8</span>  <span class="o">=</span> <span class="mf">21.0</span>
+<span class="n">lambda10</span>  <span class="o">=</span> <span class="mf">10.0</span>
 </pre></div>
 </div>
 </div>
@@ -439,10 +439,6 @@
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>The coefficients above must be real-floating-point numbers.</p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>In this notebook, the coefficients have been chosen so that the zeros of the polynomial are real numbers.</p>
 </div>
 <p>Since the current Sage library only works well on the field of rational numbers, we have to approximate all function coefficients by these numbers.</p>
 <div class="cell docutils container">
@@ -479,7 +475,7 @@
 </div>
 <section id="riemann-surface">
 <h2><span class="section-number">3.1. </span>Riemann surface<a class="headerlink" href="#riemann-surface" title="Link to this heading">#</a></h2>
-<div class="proof definition admonition" id="3.riemann_sur">
+<div class="proof definition admonition" id="2.riemann_sur">
 <p class="admonition-title"><span class="caption-number">Definition 3.1 </span></p>
 <section class="definition-content" id="proof-content">
 <p>A Riemann surface <span class="math notranslate nohighlight">\(X\)</span> is a connected two-dimensional topological manifold with a complex-analytic structure on it.</p>
@@ -539,11 +535,11 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Branch points:
--5.00000000000000
--3.00000000000000
--1.00000000000000
-4.00000000000000
-6.00000000000000
+-11.8251161409669
+-1.05264146874943
+-0.512317960119317
+0.695037784917798 - 1.04164546422316*I
+0.695037784917798 + 1.04164546422316*I
 +Infinity
 </pre></div>
 </div>
@@ -630,8 +626,8 @@ A matrix, one row per differential, containing the values of the path integrals 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[   0.38249 - 0.53767*I   -0.81274 + 0.71452*I              0.71452*I -9.8608e-32 - 1.2522*I]
-[   0.30915 + 0.26715*I    0.21067 + 0.14577*I              0.14577*I 1.5407e-32 + 0.12138*I]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[     0.13760 - 0.66033*I  -4.9304e-32 - 0.91722*I  -3.9443e-31 + 0.40344*I       1.1746 + 0.25689*I]
+[    -0.62448 + 0.28220*I -5.5467e-32 + 0.038862*I  -4.9304e-32 - 0.52554*I      0.14607 + 0.24334*I]
 </pre></div>
 </div>
 </div>
@@ -667,8 +663,8 @@ A matrix, one row per differential, containing the values of the path integrals 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[   0.30915 + 0.26715*I    0.21067 + 0.14577*I              0.14577*I 3.3896e-32 + 0.12138*I]
-[   0.38249 - 0.53767*I   -0.81274 + 0.71452*I              0.71452*I -4.9304e-32 - 1.2522*I]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[   -0.62448 + 0.28220*I 4.3141e-32 + 0.038862*I -4.9304e-32 - 0.52554*I     0.14607 + 0.24334*I]
+[    0.13760 - 0.66033*I  2.2187e-31 - 0.91722*I -5.9165e-31 + 0.40344*I      1.1746 + 0.25689*I]
 </pre></div>
 </div>
 </div>
@@ -713,8 +709,8 @@ A matrix, one row per differential, containing the values of the path integrals 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.30915 + 0.26715*I	0.21067 + 0.14577*I	0.14577*I	0.12138*I
-0.38249 - 0.53767*I	-0.81274 + 0.71452*I	0.71452*I	-1.25219*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.62448 + 0.28220*I	0.03886*I	-0.52554*I	0.14607 + 0.24334*I
+0.13760 - 0.66033*I	-0.91722*I	0.40344*I	1.17459 + 0.25689*I
 </pre></div>
 </div>
 </div>
@@ -726,8 +722,8 @@ A matrix, one row per differential, containing the values of the path integrals 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.38249 - 0.53767*I	-0.81274 + 0.71452*I	0.71452*I	-1.25219*I
-0.30915 + 0.26715*I	0.21067 + 0.14577*I	0.14577*I	0.12138*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13760 - 0.66033*I	-0.91722*I	0.40344*I	1.17459 + 0.25689*I
+-0.62448 + 0.28220*I	0.03886*I	-0.52554*I	0.14607 + 0.24334*I
 </pre></div>
 </div>
 </div>
@@ -748,11 +744,11 @@ A matrix, one row per differential, containing the values of the path integrals 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.38249 - 0.53767*I	-0.81274 + 0.71452*I
-0.30915 + 0.26715*I	0.21067 + 0.14577*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13760 - 0.66033*I	-0.91722*I
+-0.62448 + 0.28220*I	0.03886*I
 
-0.71452*I	-1.25219*I
-0.14577*I	0.12138*I
+0.40344*I	1.17459 + 0.25689*I
+-0.52554*I	0.14607 + 0.24334*I
 </pre></div>
 </div>
 </div>
@@ -781,8 +777,8 @@ A matrix, one row per differential, containing the values of the path integrals 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.045157 + 0.44291*I   0.47106 - 0.22671*I]
-[  0.47106 - 0.22671*I  -0.51612 + 0.66863*I]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.28894 + 0.70313*I -0.12636 - 0.46286*I]
+[-0.12636 - 0.46286*I  -0.25854 + 1.6328*I]
 </pre></div>
 </div>
 </div>
@@ -795,8 +791,8 @@ A matrix, one row per differential, containing the values of the path integrals 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.045157 + 0.44291*I   0.47106 - 0.22671*I]
-[  0.47106 - 0.22671*I  -0.51612 + 0.66863*I]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.28894 + 0.70313*I -0.12636 - 0.46286*I]
+[-0.12636 - 0.46286*I  -0.25854 + 1.6328*I]
 </pre></div>
 </div>
 </div>
@@ -833,7 +829,7 @@ A matrix, one row per differential, containing the values of the path integrals 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([0.80901581871495141189741224634, 0.30252360145247734355725832846], True)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([1.8239307353738361091933820951, 0.51198440541283078719843599741], True)
 </pre></div>
 </div>
 </div>
@@ -861,8 +857,8 @@ A matrix, one row per differential, containing the values of the path integrals 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.47704 + 1.21699*I	3.23860 + 3.57449*I	3.57449*I	-2.35749*I
--5.24569 + 11.71637*I	-11.46443 + 16.84185*I	16.84185*I	-5.12548*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.15574 + 0.20627*I	0.08372*I	-0.32882*I	-7.07532 + 0.12255*I
+4.74867 + 3.09497*I	-0.04832*I	-6.23827*I	-2.96268 + 3.14329*I
 </pre></div>
 </div>
 </div>
@@ -882,11 +878,11 @@ A matrix, one row per differential, containing the values of the path integrals 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.47704 + 1.21699*I	3.23860 + 3.57449*I
--5.24569 + 11.71637*I	-11.46443 + 16.84185*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.15574 + 0.20627*I	0.08372*I
+4.74867 + 3.09497*I	-0.04832*I
 
-3.57449*I	-2.35749*I
-16.84185*I	-5.12548*I
+-0.32882*I	-7.07532 + 0.12255*I
+-6.23827*I	-2.96268 + 3.14329*I
 </pre></div>
 </div>
 </div>
@@ -903,8 +899,8 @@ A matrix, one row per differential, containing the values of the path integrals 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.39559 - 2.45272*I	8.68614 + 0.15300*I
-8.68614 + 0.15300*I	10.10998 + 44.07908*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.09763 - 0.01261*I	-0.14978 - 0.29754*I
+-0.14978 - 0.29754*I	-4.77835 - 7.02263*I
 </pre></div>
 </div>
 </div>
@@ -958,11 +954,11 @@ A matrix, one row per differential, containing the values of the path integrals 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Omega Matrix:
-[   0.38249 - 0.53767*I   -0.81274 + 0.71452*I|             0.71452*I -9.8608e-32 - 1.2522*I]
-[   0.30915 + 0.26715*I    0.21067 + 0.14577*I|             0.14577*I 1.5407e-32 + 0.12138*I]
-[---------------------------------------------+---------------------------------------------]
-[     1.4770 + 1.2170*I      3.2386 + 3.5745*I|              3.5745*I  4.3141e-31 - 2.3575*I]
-[    -5.2457 + 11.716*I     -11.464 + 16.842*I|              16.842*I  1.2622e-29 - 5.1255*I]
+[     0.13760 - 0.66033*I  -4.9304e-32 - 0.91722*I| -3.9443e-31 + 0.40344*I       1.1746 + 0.25689*I]
+[    -0.62448 + 0.28220*I -5.5467e-32 + 0.038862*I| -4.9304e-32 - 0.52554*I      0.14607 + 0.24334*I]
+[-------------------------------------------------+-------------------------------------------------]
+[     0.15574 + 0.20627*I  7.8886e-31 + 0.083724*I| -8.3816e-31 - 0.32882*I      -7.0753 + 0.12255*I]
+[       4.7487 + 3.0950*I  1.1360e-28 - 0.048319*I|   2.2088e-29 - 6.2383*I       -2.9627 + 3.1433*I]
 
 J Matrix:
 [0.00000 0.00000|-1.0000 0.00000]
@@ -998,7 +994,7 @@ J Matrix:
 </section>
 <section id="theta-function">
 <h2><span class="section-number">3.5. </span>Theta function<a class="headerlink" href="#theta-function" title="Link to this heading">#</a></h2>
-<div class="proof definition admonition" id="3.theta_df">
+<div class="proof definition admonition" id="2.theta_df">
 <p class="admonition-title"><span class="caption-number">Definition 3.2 </span></p>
 <section class="definition-content" id="proof-content">
 <p>A Riemann <i>theta function</i> <span class="math notranslate nohighlight">\(\theta(v;\tau)\)</span> defined in terms of normalized coordinates <span class="math notranslate nohighlight">\(v\)</span> and normalized period matrix <span class="math notranslate nohighlight">\(\tau\)</span>, canonicaly is given by</p>
@@ -1218,21 +1214,19 @@ J Matrix:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Theta with characteristic:
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1.3992668467975948 - 0.034565760837371236*I
+ 1.0600858517074845 - 0.2501023731212625*I
 
 Exponential factor:
- 0.678950645309809 + 0.19427491340226458*I
+ 0.5734712442681018 + 0.050148801540618036*I
 
 Theta at shifted point:
- 1.8914903574780815 - 0.5921415481595035*I
+ 1.7966652347912195 - 0.5932345951363659*I
 
 RHS:
- 1.399266846797595 - 0.03456576083737145*I
+ 1.0600858517074845 - 0.2501023731212626*I
 
 Difference:
- -2.220446049250313e-16 + 2.1510571102112408e-16*I
+ 1.1102230246251565e-16*I
 The relation is verified within the given tolerance.
 </pre></div>
 </div>
@@ -1242,7 +1236,7 @@ The relation is verified within the given tolerance.
 </section>
 <section id="sigma-functions">
 <h2><span class="section-number">3.6. </span><span class="math notranslate nohighlight">\(\sigma\)</span>-Functions<a class="headerlink" href="#sigma-functions" title="Link to this heading">#</a></h2>
-<div class="proof definition admonition" id="3.sigma_df">
+<div class="proof definition admonition" id="2.sigma_df">
 <p class="admonition-title"><span class="caption-number">Definition 3.3 </span></p>
 <section class="definition-content" id="proof-content">
 <p><em> Sigma function </em> (Kleinian sigma) is a modular invariant entire function on <span class="math notranslate nohighlight">\(\mathrm{Jac}(\mathscr{C})\)</span>. It is definef by a relation with the theta function:</p>
@@ -1312,7 +1306,7 @@ The relation is verified within the given tolerance.
 </div>
 <section id="sigma-divisors">
 <h3><span class="section-number">3.6.1. </span><span class="math notranslate nohighlight">\(\sigma\)</span>-divisors<a class="headerlink" href="#sigma-divisors" title="Link to this heading">#</a></h3>
-<div class="proof definition admonition" id="3.sigma-div_df">
+<div class="proof definition admonition" id="2.sigma-div_df">
 <p class="admonition-title"><span class="caption-number">Definition 3.4 </span></p>
 <section class="definition-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\(\sigma\)</span>-divisors (or <em>special divisors</em>) are points <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> for which</p>
@@ -1323,7 +1317,7 @@ The relation is verified within the given tolerance.
 </section>
 <section id="characteristics-of-branch-points-and-bolza-formula">
 <h2><span class="section-number">3.7. </span>Characteristics of branch points and Bolza formula<a class="headerlink" href="#characteristics-of-branch-points-and-bolza-formula" title="Link to this heading">#</a></h2>
-<div class="proof definition admonition" id="3.Char_df">
+<div class="proof definition admonition" id="2.Char_df">
 <p class="admonition-title"><span class="caption-number">Definition 3.5 </span></p>
 <section class="definition-content" id="proof-content">
 <p>A characteristic is a <span class="math notranslate nohighlight">\(2\times g\)</span> matrix <span class="math notranslate nohighlight">\([\varepsilon] = (\mathbf{\varepsilon}', \mathbf{\varepsilon})^T\)</span> with real values within the interval <span class="math notranslate nohighlight">\([0,2)\)</span>.
@@ -1415,7 +1409,7 @@ Every point <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> in 
 </div>
 </div>
 <p>The first test of the above functions and selected characteristics can be the Bolza formula given as follows</p>
-<div class="proof definition admonition" id="3.Bolza_df">
+<div class="proof definition admonition" id="2.Bolza_df">
 <p class="admonition-title"><span class="caption-number">Definition 3.6 </span></p>
 <section class="definition-content" id="proof-content">
 <p>From <span id="id7">[<a class="reference internal" href="#id20" title="Julia Bernatska. Computation of \$\wp\$-functions on plane algebraic curves. July 2024. URL: https://arxiv.org/abs/2407.05632v3 (visited on 2024-10-17).">1</a>]</span>(Sec. 2.4), we have the Bolza formula:</p>
@@ -1480,12 +1474,12 @@ Every point <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> in 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Branch points from Bolza formula:
-4.00000000000000 + 3.66373598126302e-15*I
--3.00000000000000 - 1.33226762955019e-15*I
--0.999999999999999 + 4.44089209850063e-16*I
--5.30817730332639e15 + 8.96417469949544e14*I
--5.00000000000000 - 2.66453525910038e-15*I
-6.00000000000000 + 1.66533453693773e-16*I
+-1.05264146874943 - 5.55111512312578e-16*I
+0.695037784917798 + 1.04164546422316*I
+-11.8251161409668 - 4.34097202628436e-14*I
+2.53231492223134e15 - 6.84742393413673e15*I
+0.695037784917799 - 1.04164546422316*I
+-0.512317960119317
 </pre></div>
 </div>
 </div>
@@ -1540,20 +1534,20 @@ The fact that one of the roots has such a large magnitude (up to a sign precisio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1]
+[1 0]
+
+[1 0]
+[0 0]
+
+[0 0]
+[0 0]
+
+[1 0]
+[1 0]
+
+[0 0]
 [1 1]
-
-[1 0]
-[1 0]
-
-[0 1]
-[1 0]
-
-[1 0]
-[0 0]
-
-[0 0]
-[0 0]
 
 [0 1]
 [1 1]
@@ -1568,7 +1562,7 @@ The fact that one of the roots has such a large magnitude (up to a sign precisio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sorted values: [-5.00000000000000 - 2.66453525910038e-15*I, -3.00000000000000 - 1.33226762955019e-15*I, -0.999999999999999 + 4.44089209850063e-16*I, 4.00000000000000 + 3.66373598126302e-15*I, 6.00000000000000 + 1.66533453693773e-16*I, -5.30817730332639e15 + 8.96417469949544e14*I]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sorted values: [-11.8251161409668 - 4.34097202628436e-14*I, -1.05264146874943 - 5.55111512312578e-16*I, -0.512317960119317, 0.695037784917798 + 1.04164546422316*I, 0.695037784917799 - 1.04164546422316*I, 2.53231492223134e15 - 6.84742393413673e15*I]
 </pre></div>
 </div>
 </div>
@@ -1615,12 +1609,12 @@ The fact that one of the roots has such a large magnitude (up to a sign precisio
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Branch points from Bolza formula:
--5.00000000000000 - 2.66453525910038e-15*I
--3.00000000000000 - 1.33226762955019e-15*I
--0.999999999999999 + 4.44089209850063e-16*I
-4.00000000000000 + 3.66373598126302e-15*I
-6.00000000000000 + 1.66533453693773e-16*I
--5.30817730332639e15 + 8.96417469949544e14*I
+-11.8251161409668 - 4.34097202628436e-14*I
+-1.05264146874943 - 5.55111512312578e-16*I
+-0.512317960119317
+0.695037784917798 + 1.04164546422316*I
+0.695037784917799 - 1.04164546422316*I
+2.53231492223134e15 - 6.84742393413673e15*I
 </pre></div>
 </div>
 </div>
@@ -1653,10 +1647,10 @@ The fact that one of the roots has such a large magnitude (up to a sign precisio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma(u[K])= -5.280464032328584e-15 - 1.0174550212127467e-14*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma(u[K])= 4.168869563487747e-16 + 4.900022606845388e-16*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma1(u[K])= 2.76595486929220e-14 + 1.42137291225471e-14*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma1(u[K])= 1.23432198410658e-15 + 3.52430396044750e-15*I
 </pre></div>
 </div>
 </div>
@@ -1696,12 +1690,12 @@ The fact that one of the roots has such a large magnitude (up to a sign precisio
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Branch points from Bolza formula:
--5.00000000000000 + 9.08518348890981e-16*I
--3.00000000000000 - 6.07821691770261e-16*I
--1.00000000000000 - 8.51776485735862e-16*I
-4.00000000000000 + 4.06906554125232e-16*I
-6.00000000000000 + 1.76736894047931e-16*I
-1.35726057700644e16 - 2.18043917449694e16*I
+-11.8251161409669 + 1.46420013867900e-15*I
+-1.05264146874943 - 3.37524010891116e-16*I
+-0.512317960119317 + 3.11685236212985e-17*I
+0.695037784917798 + 1.04164546422316*I
+0.695037784917798 - 1.04164546422316*I
+-2.69482572518105e17 - 2.55665399144444e17*I
 </pre></div>
 </div>
 </div>
@@ -1710,7 +1704,7 @@ The fact that one of the roots has such a large magnitude (up to a sign precisio
 </section>
 <section id="wp-functions">
 <h2><span class="section-number">3.8. </span><span class="math notranslate nohighlight">\(\wp\)</span>-Functions<a class="headerlink" href="#wp-functions" title="Link to this heading">#</a></h2>
-<div class="proof definition admonition" id="3.wp_df">
+<div class="proof definition admonition" id="2.wp_df">
 <p class="admonition-title"><span class="caption-number">Definition 3.7 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(\Sigma = \{ \mathbf{u}\in \mathrm{Jac}(\mathscr{C})| \sigma(\mathbf{u})=0 \} \)</span>, then we define a multiply periodic Klein-Weierstrass <span class="math notranslate nohighlight">\(\wp\)</span>-functions on  <span class="math notranslate nohighlight">\(\mathrm{Jac}(\mathscr{C}) \setminus \Sigma\)</span> by</p>
@@ -1835,17 +1829,17 @@ The fact that one of the roots has such a large magnitude (up to a sign precisio
 Test P11:
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.01785246897634e-12 - 6.49258424800792e-12*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5456.64098472225 - 129.384240060038*I
 
 Test P13:
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.50180312630255e-10 + 5.24806864632410e-10*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1691.55457358245 - 1547.13199513522*I
 
 Test P33:
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.49383447226137e-9 - 6.76658373777173e-9*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>108.402730941999 - 956.649120634020*I
 </pre></div>
 </div>
 </div>
@@ -1881,17 +1875,17 @@ Test P33:
 Test P11:
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>435.423170566965 - 1284.42344146965*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.82254277914762e-11 + 4.30588897870621e-12*I
 
 Test P13:
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11515.6295055428 + 2290.00556440256*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.81597009336110e-12 + 1.25623955682386e-11*I
 
 Test P33:
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-6676.78455445228 + 101429.467554152*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.39550593303284e-11 - 1.67688085639384e-11*I
 </pre></div>
 </div>
 </div>
@@ -1906,21 +1900,21 @@ Test P33:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma(u)= -2.6009258311828663e+33 + 1.3224659722714246e+32*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma(u)= 1.106709952459739e+24 + 1.6613439432427985e+24*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma1(u)= 4.53548349465070e34 - 2.30611058476153e33*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma1(u)= 2.17016860035032e25 + 3.25776094449540e25*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma3(u)= -2.06613586438708e35 + 1.05054682528078e34*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sigma3(u)= 2.55082918890276e25 + 3.82919175327891e25*I
 </pre></div>
 </div>
 </div>
 </div>
-<div class="proof observation admonition" id="3.obser-1">
+<div class="proof observation admonition" id="2.obser-1">
 <p class="admonition-title"><span class="caption-number">Observation 3.1 </span></p>
 <section class="observation-content" id="proof-content">
-<p>Something is wrong</p>
+<p>Similar to the case with real brunch points, but this time the first set of coordinates is the one that causes errors.</p>
 </section>
 </div></section>
 <section id="kdv-equation">
@@ -1945,7 +1939,7 @@ Test P33:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-8.82209860719740e-11 + 3.66325411899058e-10*I
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.93267624126747e-12 - 2.87112418060853e-12*I
 </pre></div>
 </div>
 </div>
@@ -1964,53 +1958,24 @@ Test P33:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>560.751240245520 + 12360.8132533289*I
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.86233317235019e-12 + 9.37916411203332e-12*I
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RHS</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>541.497292986239 - 5.27285875962457e-11*I
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LHS</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1102.24853323176 + 12360.8132533289*I
-</pre></div>
-</div>
-</div>
-</div>
-<div class="proof observation admonition" id="3.obser-2">
-<p class="admonition-title"><span class="caption-number">Observation 3.2 </span></p>
-<section class="observation-content" id="proof-content">
-<p>There is probably something wrong with <span class="math notranslate nohighlight">\(\wp_{1111}\)</span> because of its large imaginary value.</p>
 </section>
-</div></section>
 <section id="basic-relations">
 <h4><span class="section-number">3.8.1.3. </span>Basic relations<a class="headerlink" href="#basic-relations" title="Link to this heading">#</a></h4>
-<div class="proof definition admonition" id="definition-10">
+<div class="proof definition admonition" id="definition-9">
 <p class="admonition-title"><span class="caption-number">Definition 3.9 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Multiply periodic Klein-Weierstrass <span class="math notranslate nohighlight">\(\wp\)</span>-functions should satisfy following relations (<span id="id11">[<a class="reference internal" href="#id31" title="Julia Bernatska. An analogue of Vélu's formulae in genus two. December 2024. arXiv:2412.10284 [math]. URL: http://arxiv.org/abs/2412.10284 (visited on 2025-01-06), doi:10.48550/arXiv.2412.10284.">4</a>]</span> Eq. 2.20):</p>
-<div class="math notranslate nohighlight" id="equation-3-br-1">
-<span class="eqno">(3.44)<a class="headerlink" href="#equation-3-br-1" title="Link to this equation">#</a></span>\[       \wp_{133}(\mathbf{u}) = \wp_{13}(\mathbf{u})\wp_{111}(\mathbf{u}) -  \wp_{11}(\mathbf{u})\wp_{113}(\mathbf{u})\]</div>
-<div class="math notranslate nohighlight" id="equation-3-br-2">
-<span class="eqno">(3.45)<a class="headerlink" href="#equation-3-br-2" title="Link to this equation">#</a></span>\[       \wp_{1113}(\mathbf{u}) = 6 \wp_{13}(\mathbf{u}) \wp_{11}(\mathbf{u}) - 2\wp_{33}(\mathbf{u}) + 4\lambda_2 \wp_{13}(\mathbf{u})\]</div>
-<div class="math notranslate nohighlight" id="equation-3-br-3">
-<span class="eqno">(3.46)<a class="headerlink" href="#equation-3-br-3" title="Link to this equation">#</a></span>\[       \wp_{33}(\mathbf{u}) = \frac{1}{4} \wp_{111}^2(\mathbf{u})- \wp_{11}^3(\mathbf{u}) - \wp_{13}(\mathbf{u}) \wp_{11}(\mathbf{u}) - \lambda_2 \wp_{11}^2(\mathbf{u}) - \lambda_4\wp_{11}(\mathbf{u}) - \lambda_6\]</div>
+<div class="math notranslate nohighlight" id="equation-2-br-1">
+<span class="eqno">(3.44)<a class="headerlink" href="#equation-2-br-1" title="Link to this equation">#</a></span>\[       \wp_{133}(\mathbf{u}) = \wp_{13}(\mathbf{u})\wp_{111}(\mathbf{u}) -  \wp_{11}(\mathbf{u})\wp_{113}(\mathbf{u})\]</div>
+<div class="math notranslate nohighlight" id="equation-2-br-2">
+<span class="eqno">(3.45)<a class="headerlink" href="#equation-2-br-2" title="Link to this equation">#</a></span>\[       \wp_{1113}(\mathbf{u}) = 6 \wp_{13}(\mathbf{u}) \wp_{11}(\mathbf{u}) - 2\wp_{33}(\mathbf{u}) + 4\lambda_2 \wp_{13}(\mathbf{u})\]</div>
+<div class="math notranslate nohighlight" id="equation-2-br-3">
+<span class="eqno">(3.46)<a class="headerlink" href="#equation-2-br-3" title="Link to this equation">#</a></span>\[       \wp_{33}(\mathbf{u}) = \frac{1}{4} \wp_{111}^2(\mathbf{u})- \wp_{11}^3(\mathbf{u}) - \wp_{13}(\mathbf{u}) \wp_{11}(\mathbf{u}) - \lambda_2 \wp_{11}^2(\mathbf{u}) - \lambda_4\wp_{11}(\mathbf{u}) - \lambda_6\]</div>
 </section>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2039,13 +2004,13 @@ Test P33:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test of the first eq.:
--8.10541678220034e-9 - 1.59623258344472e-8*I
+-2.78532752417959e-12 - 4.88393017313736e-12*I
 
 Test of the second eq.:
-3.47972672898322e-9 + 2.48305436171362e-9*I
+-1.38129507831763e-11 - 2.24519098308128e-11*I
 
 Test of the third eq.:
-4.32919478043914e-10 + 1.74979642486429e-9*I
+3.66995323020092e-12 - 3.55449029934026e-12*I
 </pre></div>
 </div>
 </div>
@@ -2078,28 +2043,28 @@ Test of the third eq.:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test of the first eq.:
--474989.376873502 - 507360.037426675*I
+-2.08046913030557e-11 + 3.70053756862678e-11*I
 
 Test of the second eq.:
-332264.897300217 + 150356.742880861*I
+-9.37916411203332e-11 + 7.85378716560857e-11*I
 
 Test of the third eq.:
--56410.8812499046 + 24078.0887804000*I
+1.17434950652751e-11 + 1.07062536925189e-11*I
 </pre></div>
 </div>
 </div>
 </div>
-<div class="proof observation admonition" id="3.obser-3">
-<p class="admonition-title"><span class="caption-number">Observation 3.3 </span></p>
+<div class="proof observation admonition" id="2.obser-2">
+<p class="admonition-title"><span class="caption-number">Observation 3.2 </span></p>
 <section class="observation-content" id="proof-content">
-<p>Again, a similar problem. We need to develop a domain in which we should be able to work.</p>
+<p>In this case there are no problems, but you can probably find points where they occur.</p>
 </section>
 </div></section>
 </section>
 </section>
 <section id="jacobi-inversion-problem">
 <h2><span class="section-number">3.9. </span>Jacobi inversion problem<a class="headerlink" href="#jacobi-inversion-problem" title="Link to this heading">#</a></h2>
-<div class="proof definition admonition" id="3.divisor_df">
+<div class="proof definition admonition" id="2.divisor_df">
 <p class="admonition-title"><span class="caption-number">Definition 3.10 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Let</p>
@@ -2111,7 +2076,7 @@ Test of the third eq.:
 <li><p><span class="math notranslate nohighlight">\(D\)</span> does not contain pairs of points connected by the hyperelliptic involution.</p></li>
 </ul>
 </section>
-</div><div class="proof definition admonition" id="3.Abel_map_df">
+</div><div class="proof definition admonition" id="2.Abel_map_df">
 <p class="admonition-title"><span class="caption-number">Definition 3.11 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(du\)</span> be a normalised first kind differentials, then an Abel map <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> can be constructed by:</p>
@@ -2124,7 +2089,7 @@ Test of the third eq.:
 </div><section id="jacobi-inversion-problem-on-branch-points">
 <h3><span class="section-number">3.9.1. </span>Jacobi inversion problem on branch points<a class="headerlink" href="#jacobi-inversion-problem-on-branch-points" title="Link to this heading">#</a></h3>
 <p>Based on the Riemann vanishing theorem and the inverse Jaccobi problem we can define the following properties.</p>
-<div class="proof definition admonition" id="definition-14">
+<div class="proof definition admonition" id="definition-13">
 <p class="admonition-title"><span class="caption-number">Definition 3.12 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Based on <span id="id12">[<a class="reference internal" href="#id26" title="V.Z. Enolski, E. Hackmann, V. Kagramanova, J. Kunz, and C. Lämmerzahl. Inversion of hyperelliptic integrals of arbitrary genus with application to particle motion in general relativity. Journal of Geometry and Physics, 61(5):899–921, May 2011. URL: https://linkinghub.elsevier.com/retrieve/pii/S0393044011000027 (visited on 2024-10-28), doi:10.1016/j.geomphys.2011.01.001.">3</a>]</span>(5.10-13) let’s take</p>
@@ -2257,16 +2222,16 @@ Test of the third eq.:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Omega12 - AOmega12= (1.4290*I, 0.29154*I)
-Omega13 - AOmega13= (0.38249 - 0.53767*I, 0.30915 + 0.26715*I)
-Omega14 - AOmega14= (1.4290*I, 0.29154*I)
-Omega15 - AOmega15= (0.71452*I, 0.14577*I)
-Omega23 - AOmega23= (0.76497 - 1.7899*I, 0.61831 + 0.38854*I)
-Omega24 - AOmega24= (0.38249 + 0.17686*I, 0.30915 + 0.41292*I)
-Omega25 - AOmega25= (0.38249 - 0.53767*I, 0.30915 + 0.26715*I)
-Omega34 - AOmega34= (0.17686*I, 0.41292*I)
-Omega35 - AOmega35= (-0.53767*I, 0.26715*I)
-Omega45 - AOmega45= (0.00000, 0.00000)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Omega12 - AOmega12= (1.3122, -0.47840)
+Omega13 - AOmega13= (1.1399 - 0.66033*I, 0.14607 + 0.28220*I)
+Omega14 - AOmega14= (1.3122 - 0.91722*I, -0.47840 + 0.038862*I)
+Omega15 - AOmega15= (1.3122 - 1.3207*I, -0.47840 + 0.56440*I)
+Omega23 - AOmega23= (-0.17232 - 0.25689*I, 0.62448 - 0.24334*I)
+Omega24 - AOmega24= (-0.51377*I, -0.48668*I)
+Omega25 - AOmega25= (-0.91722*I, 0.038862*I)
+Omega34 - AOmega34= (0.17232 - 0.25689*I, -0.62448 - 0.24334*I)
+Omega35 - AOmega35= (0.17232 - 0.66033*I, -0.62448 + 0.28220*I)
+Omega45 - AOmega45= (0.13760 - 0.66033*I, -0.62448 + 0.28220*I)
 </pre></div>
 </div>
 </div>
@@ -2281,11 +2246,11 @@ Omega45 - AOmega45= (0.00000, 0.00000)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega12)= -7.99999999999998 + 6.21724893790088e-15*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega12)= -12.8777576097163 - 4.44089209850063e-15*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega12)= -8.00000000000004 + 2.84217094304040e-14*I
-From theory: e1+e2= -8.00000000000000 + 3.00696657120720e-16*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega12)= -12.8777576097163 + 6.52256026967279e-16*I
+From theory: e1+e2= -12.8777576097163 + 1.12667612778789e-15*I
 </pre></div>
 </div>
 </div>
@@ -2299,11 +2264,11 @@ From theory: e1+e2= -8.00000000000000 + 3.00696657120720e-16*I
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(Omega12)= -14.9999999999999 + 4.13002965160558e-14*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(Omega12)= -12.4476076227599 + 1.77635683940025e-15*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(AOmega12)= -14.9999999999999 + 6.92779167366098e-14*I
-From theory: -e1*e2= -15.0000000000000 - 3.13553412178361e-16*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(AOmega12)= -12.4476076227599 - 4.10782519111308e-15*I
+From theory: -e1*e2= -12.4476076227599 - 2.44998284463022e-15*I
 </pre></div>
 </div>
 </div>
@@ -2317,11 +2282,11 @@ From theory: -e1*e2= -15.0000000000000 - 3.13553412178361e-16*I
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P33(Omega12)= 111.000000000000 - 8.52651282912120e-14*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P33(Omega12)= 10.1226150881406 - 1.77635683940025e-14*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P33(AOmega12)= 111.000000000000 + 4.26325641456060e-13*I
-From theory: e1*e2(e3+e4+e5) + e3*e4*e5= 111.000000000000 - 2.47910374124390e-14*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P33(AOmega12)= 10.1226150881406 + 1.77635683940025e-14*I
+From theory: e1*e2(e3+e4+e5) + e3*e4*e5= 10.1226150881406 + 4.96992635363731e-15*I
 </pre></div>
 </div>
 </div>
@@ -2335,11 +2300,11 @@ From theory: e1*e2(e3+e4+e5) + e3*e4*e5= 111.000000000000 - 2.47910374124390e-14
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega13)= -6.00000000000000 + 3.55271367880050e-15*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega13)= -12.3374341010861 - 4.44089209850063e-15*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega13)= -6.00000000000002 + 1.06581410364015e-14*I
-From theory: e1+e3= -6.00000000000000 + 5.67418631551191e-17*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega13)= -12.1578646219938 + 4.08842072453786e-8*I
+From theory: e1+e3= -12.3374341010862 + 1.49536866230030e-15*I
 </pre></div>
 </div>
 </div>
@@ -2353,11 +2318,11 @@ From theory: e1+e3= -6.00000000000000 + 5.67418631551191e-17*I
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega14)= -1.00000000000000 - 3.99680288865056e-15*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega14)= -11.1300783560491 + 1.04164546422316*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega14)= -0.999999999999995 + 2.13162820728030e-14*I
-From theory: e1+e4= -1.00000000000000 + 1.31542490301621e-15*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega14)= -11.1300783560491 + 1.04164546422316*I
+From theory: e1+e4= -11.1300783560491 + 1.04164546422316*I
 </pre></div>
 </div>
 </div>
@@ -2371,11 +2336,11 @@ From theory: e1+e4= -1.00000000000000 + 1.31542490301621e-15*I
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega15)= 0.999999999999995 - 4.44089209850063e-15*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega15)= -11.1300783560490 - 1.04164546422317*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega15)= 0.999999999999994 - 3.55271367880050e-15*I
-From theory: e1+e5= 1.00000000000000 + 1.08525524293891e-15*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega15)= -11.1300783560491 - 1.04164546422316*I
+From theory: e1+e5= -11.1300783560491 - 1.04164546422316*I
 </pre></div>
 </div>
 </div>
@@ -2389,11 +2354,11 @@ From theory: e1+e5= 1.00000000000000 + 1.08525524293891e-15*I
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega23)= -4.00000000000000 - 3.55271367880050e-15*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega23)= -1.56495942886875 - 3.88578058618805e-16*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega23)= -4.00000000000000 - 4.44089209850063e-16*I
-From theory: e2+e3= -4.00000000000000 - 1.45959817750612e-15*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega23)= -1.60036675615352 + 6.99244995239212e-9*I
+From theory: e2+e3= -1.56495942886875 - 3.06355487269817e-16*I
 </pre></div>
 </div>
 </div>
@@ -2407,11 +2372,11 @@ From theory: e2+e3= -4.00000000000000 - 1.45959817750612e-15*I
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega24)= 1.00000000000000 - 4.44089209850063e-16*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega24)= -0.357603683831629 + 1.04164546422316*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega24)= 1.00000000000000 - 4.44089209850063e-15*I
-From theory: e2+e4= 1.00000000000000 - 2.00915137645029e-16*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega24)= -0.357603683831641 + 1.04164546422316*I
+From theory: e2+e4= -0.357603683831631 + 1.04164546422316*I
 </pre></div>
 </div>
 </div>
@@ -2425,11 +2390,11 @@ From theory: e2+e4= 1.00000000000000 - 2.00915137645029e-16*I
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega25)= 3.00000000000000 + 8.88178419700125e-16*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega25)= -0.357603683831631 - 1.04164546422316*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega25)= 3.00000000000000 - 4.44089209850063e-16*I
-From theory: e2+e5= 3.00000000000000 - 4.31084797722330e-16*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega25)= -0.357603683831631 - 1.04164546422316*I
+From theory: e2+e5= -0.357603683831632 - 1.04164546422316*I
 </pre></div>
 </div>
 </div>
@@ -2443,11 +2408,11 @@ From theory: e2+e5= 3.00000000000000 - 4.31084797722330e-16*I
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega34)= 3.00000000000000 + 7.10542735760100e-15*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega34)= 0.182719824798481 + 1.04164546422316*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega34)= 3.00000000000000 + 3.55271367880050e-15*I
-From theory: e3+e4= 3.00000000000000 - 4.44869931610630e-16*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega34)= 0.187452462896973 + 1.07462830934531*I
+From theory: e3+e4= 0.182719824798481 + 1.04164546422316*I
 </pre></div>
 </div>
 </div>
@@ -2461,11 +2426,11 @@ From theory: e3+e4= 3.00000000000000 - 4.44869931610630e-16*I
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega35)= 5.00000000000002 + 1.77635683940025e-14*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega35)= 0.182719824798477 - 1.04164546422316*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega35)= 4.99999999999999 - 1.77635683940025e-15*I
-From theory: e3+e5= 5.00000000000000 - 6.75039591687931e-16*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega35)= 0.187452457028380 - 1.07462830675917*I
+From theory: e3+e5= 0.182719824798481 - 1.04164546422316*I
 </pre></div>
 </div>
 </div>
@@ -2479,11 +2444,11 @@ From theory: e3+e5= 5.00000000000000 - 6.75039591687931e-16*I
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega45)= 9.99999999999999 - 4.44089209850063e-16*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(Omega45)= 1.39007556983559 - 6.71684929898220e-15*I
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega45)= 10.0000000000000 + 6.21724893790088e-15*I
-From theory: e4+e5= 10.0000000000000 + 5.83643448173163e-16*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(AOmega45)= 1.39007556983560 + 9.43689570931383e-16*I
+From theory: e4+e5= 1.39007556983560 + 2.22044604925031e-16*I
 </pre></div>
 </div>
 </div>
@@ -2550,11 +2515,11 @@ From theory: e4+e5= 10.0000000000000 + 5.83643448173163e-16*I
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Branch points:
--5.00000000000000
--3.00000000000000
--1.00000000000000
-4.00000000000000
-6.00000000000000
+-11.8251161409669
+-1.05264146874943
+-0.512317960119317
+0.695037784917798 - 1.04164546422316*I
+0.695037784917798 + 1.04164546422316*I
 +Infinity
 </pre></div>
 </div>
@@ -2593,16 +2558,16 @@ From theory: e4+e5= 10.0000000000000 + 5.83643448173163e-16*I
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(u):= 11.5000000603600 - 1.71454441755259e-8*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(u):= 0.184891289907970 - 1.07467781012325*I
 From theory: x1+x2= 11.5000000000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(u)= -32.5000003034155 + 1.16165164598669e-7*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(u)= 0.353993474282754 - 0.557285599518726*I
 From theory: -x1*x2= -32.5000000000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P33(u)= -279.499940540788 + 623.253118200283*I
-From theory: -28.4474824766491*I*sqrt(30) - 69.8750000000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P33(u)= 12.4404821020362 + 6.09804458536710*I
+From theory: -204.146616551396*sqrt(881/2) + 4284.93055555556
 </pre></div>
 </div>
 </div>
@@ -2640,16 +2605,16 @@ From theory: -28.4474824766491*I*sqrt(30) - 69.8750000000000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(u):= 1.00000033920249 + 1.80036838770548e-8*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(u):= 1.77557997339084 - 1.22425273828305*I
 From theory: x1+x2= 1.00000000000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(u)= 0.750000009217073 + 4.89208673570829e-10*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(u)= -0.552540873788430 + 1.23859942939941*I
 From theory: -x1*x2= 0.750000000000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P33(u)= 471.998377504963 - 1.44402420687584e-6*I
-From theory: 26.0238363221235
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P33(u)= -59.6555863818557 + 27.4989143355881*I
+From theory: 2.66403194341274
 </pre></div>
 </div>
 </div>
@@ -2687,22 +2652,209 @@ From theory: 26.0238363221235
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(u):= 9.03505583570014 - 6.90418779925039e-8*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(u):= 1.77557996983274 + 1.22425274112177*I
 From theory: x1+x2= 1.00000000000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(u)= -7.59594822185160 + 1.88173888915344e-7*I
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(u)= -0.552540869826764 - 1.23859943205059*I
 From theory: -x1*x2= 0.750000000000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P33(u)= -74.6790375700397 + 3.36753625163055e-6*I
-From theory: 26.0238363221235
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P33(u)= -59.6555880494280 - 27.4989154654669*I
+From theory: 2.66403194341274
 </pre></div>
 </div>
 </div>
 </div>
-<div class="proof observation admonition" id="3.obser-4">
-<p class="admonition-title"><span class="caption-number">Observation 3.4 </span></p>
+<p>Let’s change the brunch point in the divisor definition on the first one which is real</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
+
+<span class="n">y1</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+
+
+<span class="c1"># Divisors</span>
+<span class="n">divisor</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">Infinity</span><span class="p">,</span><span class="mi">0</span><span class="p">)),(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">e3</span><span class="p">,</span>  <span class="mi">0</span><span class="p">)),(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)),(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">))]</span>
+
+<span class="c1"># Abel map</span>
+<span class="n">aj</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">abel_jacobi</span><span class="p">(</span><span class="n">divisor</span><span class="p">)</span>
+<span class="c1"># Reversing the order of coordinates</span>
+<span class="n">AJ</span> <span class="o">=</span> <span class="p">(</span><span class="n">aj</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">aj</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">u1</span><span class="o">=</span><span class="n">AJ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">u3</span><span class="o">=</span><span class="n">AJ</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P11(u):=&quot;</span><span class="p">,</span><span class="n">WeierstrassP11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;From theory: x1+x2=&quot;</span><span class="p">,</span><span class="n">x1</span><span class="o">+</span> <span class="n">x2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P13(u)=&quot;</span><span class="p">,</span><span class="n">WeierstrassP13</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;From theory: -x1*x2=&quot;</span><span class="p">,</span><span class="o">-</span><span class="n">x1</span><span class="o">*</span><span class="n">x2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>     
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P33(u)=&quot;</span><span class="p">,</span><span class="n">WeierstrassP33</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;From theory:&quot;</span><span class="p">,</span><span class="n">p33</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(u):= 0.999818095342272 - 9.42324884789514e-10*I
+From theory: x1+x2= 1.00000000000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(u)= 0.749923179704208 + 1.16553522389040e-9*I
+From theory: -x1*x2= 0.750000000000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P33(u)= 15.4500625172065 - 8.65000444605357e-8*I
+From theory: 2.66403194341274
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ok, let’s change the points <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> for it</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="mf">10.5</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">8.5</span>
+
+<span class="n">y1</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+
+
+<span class="c1"># Divisors</span>
+<span class="n">divisor</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">Infinity</span><span class="p">,</span><span class="mi">0</span><span class="p">)),(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">e3</span><span class="p">,</span>  <span class="mi">0</span><span class="p">)),(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)),(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">))]</span>
+
+<span class="c1"># Abel map</span>
+<span class="n">aj</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">abel_jacobi</span><span class="p">(</span><span class="n">divisor</span><span class="p">)</span>
+<span class="c1"># Reversing the order of coordinates</span>
+<span class="n">AJ</span> <span class="o">=</span> <span class="p">(</span><span class="n">aj</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">aj</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">u1</span><span class="o">=</span><span class="n">AJ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">u3</span><span class="o">=</span><span class="n">AJ</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P11(u):=&quot;</span><span class="p">,</span><span class="n">WeierstrassP11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;From theory: x1+x2=&quot;</span><span class="p">,</span><span class="n">x1</span><span class="o">+</span> <span class="n">x2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P13(u)=&quot;</span><span class="p">,</span><span class="n">WeierstrassP13</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;From theory: -x1*x2=&quot;</span><span class="p">,</span><span class="o">-</span><span class="n">x1</span><span class="o">*</span><span class="n">x2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>     
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P33(u)=&quot;</span><span class="p">,</span><span class="n">WeierstrassP33</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;From theory:&quot;</span><span class="p">,</span><span class="n">p33</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(u):= 4.73719784630354 + 4.00053699792235e-7*I
+From theory: x1+x2= 2.00000000000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(u)= 103.024851216997 + 6.27970203170847e-6*I
+From theory: -x1*x2= 89.2500000000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P33(u)= 1167.35969687998 + 0.0000704657058179237*I
+From theory: 48.3847049517949
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s try the remaining brunch points in the dividers definition</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="mf">10.5</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">8.5</span>
+
+<span class="n">y1</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+
+
+<span class="c1"># Divisors</span>
+<span class="n">divisor</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">Infinity</span><span class="p">,</span><span class="mi">0</span><span class="p">)),(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">e2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">)),(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)),(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">))]</span>
+
+<span class="c1"># Abel map</span>
+<span class="n">aj</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">abel_jacobi</span><span class="p">(</span><span class="n">divisor</span><span class="p">)</span>
+<span class="c1"># Reversing the order of coordinates</span>
+<span class="n">AJ</span> <span class="o">=</span> <span class="p">(</span><span class="n">aj</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">aj</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">u1</span><span class="o">=</span><span class="n">AJ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">u3</span><span class="o">=</span><span class="n">AJ</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P11(u):=&quot;</span><span class="p">,</span><span class="n">WeierstrassP11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;From theory: x1+x2=&quot;</span><span class="p">,</span><span class="n">x1</span><span class="o">+</span> <span class="n">x2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P13(u)=&quot;</span><span class="p">,</span><span class="n">WeierstrassP13</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;From theory: -x1*x2=&quot;</span><span class="p">,</span><span class="o">-</span><span class="n">x1</span><span class="o">*</span><span class="n">x2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>     
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P33(u)=&quot;</span><span class="p">,</span><span class="n">WeierstrassP33</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;From theory:&quot;</span><span class="p">,</span><span class="n">p33</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(u):= 1.63612121389863 - 2.08993484740461e-8*I
+From theory: x1+x2= 2.00000000000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(u)= -1.85649109962442 + 4.48041603817728e-9*I
+From theory: -x1*x2= 89.2500000000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P33(u)= -26.4254878930462 + 1.54122091089448e-7*I
+From theory: 48.3847049517949
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="mf">10.5</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">8.5</span>
+
+<span class="n">y1</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+
+
+<span class="c1"># Divisors</span>
+<span class="n">divisor</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">Infinity</span><span class="p">,</span><span class="mi">0</span><span class="p">)),(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">e1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">)),(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)),(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">))]</span>
+
+<span class="c1"># Abel map</span>
+<span class="n">aj</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">abel_jacobi</span><span class="p">(</span><span class="n">divisor</span><span class="p">)</span>
+<span class="c1"># Reversing the order of coordinates</span>
+<span class="n">AJ</span> <span class="o">=</span> <span class="p">(</span><span class="n">aj</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">aj</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">u1</span><span class="o">=</span><span class="n">AJ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">u3</span><span class="o">=</span><span class="n">AJ</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P11(u):=&quot;</span><span class="p">,</span><span class="n">WeierstrassP11</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;From theory: x1+x2=&quot;</span><span class="p">,</span><span class="n">x1</span><span class="o">+</span> <span class="n">x2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P13(u)=&quot;</span><span class="p">,</span><span class="n">WeierstrassP13</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;From theory: -x1*x2=&quot;</span><span class="p">,</span><span class="o">-</span><span class="n">x1</span><span class="o">*</span><span class="n">x2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>     
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P33(u)=&quot;</span><span class="p">,</span><span class="n">WeierstrassP33</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;From theory:&quot;</span><span class="p">,</span><span class="n">p33</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P11(u):= 83.3574365361692 - 6.51322716094249e-6*I
+From theory: x1+x2= 2.00000000000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P13(u)= 42.2292611986710 - 3.25483494734158e-6*I
+From theory: -x1*x2= 89.2500000000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P33(u)= 33.3170685572608 - 1.97860730399846e-6*I
+From theory: 48.3847049517949
+</pre></div>
+</div>
+</div>
+</div>
+<div class="proof observation admonition" id="2.obser-3">
+<p class="admonition-title"><span class="caption-number">Observation 3.3 </span></p>
 <section class="observation-content" id="proof-content">
 <p>As for now, there are no clear rules for selecting divisors.</p>
 </section>
@@ -2788,7 +2940,7 @@ From theory: 26.0238363221235
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Genus two with real coefficients</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Genus two with real brunch points case</p>
       </div>
     </a>
 </div>
