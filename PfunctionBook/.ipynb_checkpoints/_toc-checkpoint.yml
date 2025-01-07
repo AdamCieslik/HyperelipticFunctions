@@ -6,7 +6,7 @@ root: 0. Intro
 chapters:
 - file: 1. Preliminaries
 - file: 2. Genus=2-realBP
-- file: 3. WithRiemmPack
+- file: 3. Genus=2-realCoeff
 
 options:
   numbered: true  # Włącza numerowanie rozdziałów i sekcji
