@@ -34,9 +34,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=6a117c68" />
     <link rel="stylesheet" type="text/css" href="_static/css/.ipynb_checkpoints/custom-checkpoint.css" />
@@ -68,7 +68,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '1. Preliminaries';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. Genus two with real brunch points case" href="2.%20Genus%3D2-realBP.html" />
+    <link rel="next" title="2. Genus two with real coefficients" href="2.%20Genus%3D2-realBP.html" />
     <link rel="prev" title="Introduction" href="0.%20Intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -175,8 +175,8 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Preliminaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2.%20Genus%3D2-realBP.html">2. Genus two with real brunch points case</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3.%20WithRiemmPack.html">3. Approach with RiemannTheta package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Genus%3D2-realBP.html">2. Genus two with real coefficients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.%20Genus%3D2-realCoeff.html">3. Genus two with real brunch points case</a></li>
 </ul>
 
     </div>
@@ -409,7 +409,7 @@
 </section>
 <section id="hyperelliptic-curve">
 <h2><span class="section-number">1.2. </span>Hyperelliptic curve<a class="headerlink" href="#hyperelliptic-curve" title="Link to this heading">#</a></h2>
-<p>In studies on hyperelliptic functions, various conventions for defining a curve, and consequently the hyperelliptic functions, can be found. In this notebook, we adopt the convention presented in <span id="id1">[<a class="reference internal" href="3.%20WithRiemmPack.html#id13" title="Julia Bernatska. Computation of \$\wp\$-functions on plane algebraic curves. July 2024. URL: https://arxiv.org/abs/2407.05632v3 (visited on 2024-10-17).">1</a>]</span>, <span id="id2">[<a class="reference internal" href="0.%20Intro.html#id24" title="Julia Bernatska. Abelian function fields on Jacobian varieties. December 2024. arXiv:2412.05455 [math]. URL: http://arxiv.org/abs/2412.05455 (visited on 2025-01-06), doi:10.48550/arXiv.2412.05455.">4</a>]</span>and <span id="id3">[<a class="reference internal" href="2.%20Genus%3D2-realBP.html#id31" title="Julia Bernatska. An analogue of Vélu's formulae in genus two. December 2024. arXiv:2412.10284 [math]. URL: http://arxiv.org/abs/2412.10284 (visited on 2025-01-06), doi:10.48550/arXiv.2412.10284.">4</a>]</span>.</p>
+<p>In studies on hyperelliptic functions, various conventions for defining a curve, and consequently the hyperelliptic functions, can be found. In this notebook, we adopt the convention presented in <span id="id1">[<a class="reference internal" href="3.%20Genus%3D2-realCoeff.html#id20" title="Julia Bernatska. Computation of \$\wp\$-functions on plane algebraic curves. July 2024. URL: https://arxiv.org/abs/2407.05632v3 (visited on 2024-10-17).">1</a>]</span>, <span id="id2">[<a class="reference internal" href="0.%20Intro.html#id24" title="Julia Bernatska. Abelian function fields on Jacobian varieties. December 2024. arXiv:2412.05455 [math]. URL: http://arxiv.org/abs/2412.05455 (visited on 2025-01-06), doi:10.48550/arXiv.2412.05455.">4</a>]</span>and <span id="id3">[<a class="reference internal" href="3.%20Genus%3D2-realCoeff.html#id31" title="Julia Bernatska. An analogue of Vélu's formulae in genus two. December 2024. arXiv:2412.10284 [math]. URL: http://arxiv.org/abs/2412.10284 (visited on 2025-01-06), doi:10.48550/arXiv.2412.10284.">4</a>]</span>.</p>
 <p>Additionally, conventions for curves in both general and canonical forms are also discussed in dedicated notebooks: <code class="docutils literal notranslate"><span class="pre">canonical-name.ipynb</span></code> and <code class="docutils literal notranslate"><span class="pre">general-name.ipynb</span></code>. Please refer to these notebooks for further details.</p>
 <div class="proof definition admonition" id="hyperelliptic_curve">
 <p class="admonition-title"><span class="caption-number">Definition 1.1 </span></p>
@@ -472,7 +472,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Genus two with real brunch points case</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Genus two with real coefficients</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
